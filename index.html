@@ -3,381 +3,185 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GoZapTools – Free Online Tools for Pakistan</title>
-  <meta name="description" content="Free online tools built for Pakistan. Generate salary slips, calculate electricity bills, create documents and more. No login required." />
+  <title>GoZapTools – Free Online Tools for Pakistan | Payslip, Bill Calculator & More</title>
+  <meta name="description" content="GoZapTools offers 100% free online tools built for Pakistan. Generate salary slips, calculate electricity bills (LESCO, MEPCO, FESCO), create CVs and more. No login, no signup required." />
+  <meta name="keywords" content="free online tools Pakistan, salary slip generator Pakistan, electricity bill calculator Pakistan, LESCO calculator, payslip generator Pakistan, free tools Pakistan" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.gozaptools.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="GoZapTools – Free Online Tools for Pakistan" />
+  <meta property="og:description" content="100% free tools built for Pakistan. Salary slips, electricity bills, CVs and more. No login required." />
+  <meta property="og:url" content="https://www.gozaptools.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="GoZapTools" />
+
+  <!-- GA4 — paste your Measurement ID below when ready -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script> -->
+
+  <!-- FAQ Schema for Google Rich Results -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Are GoZapTools free to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, all tools on GoZapTools are 100% free to use. No signup, no login, no hidden charges."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I generate a salary slip online in Pakistan for free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. GoZapTools offers a free salary slip generator for Pakistan that supports all private sector fields including basic salary, house rent allowance, EOBI, PESSI, income tax, and other deductions. You can download the payslip as a PDF instantly."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which electricity companies (DISCOs) are supported in the bill calculator?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our electricity bill calculator supports all 10 DISCOs in Pakistan: LESCO (Lahore), MEPCO (Multan), FESCO (Faisalabad), IESCO (Islamabad), GEPCO (Gujranwala), HESCO (Hyderabad), SEPCO (Sukkur), PESCO (Peshawar), QESCO (Quetta), and TESCO (Tribal Areas)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need to create an account to use GoZapTools?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. GoZapTools requires zero signup or account creation. All tools work instantly in your browser."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my data safe on GoZapTools?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. All GoZapTools run entirely in your browser. No data is sent to any server. Your company name, employee details, and salary figures never leave your device."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Website Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "GoZapTools",
+    "url": "https://www.gozaptools.com",
+    "description": "Free online tools built for Pakistan. No login required.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://www.gozaptools.com/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --bg: #0a0a0f;
-      --surface: #13131a;
-      --surface2: #1c1c27;
-      --border: #2a2a3a;
-      --accent: #00e5a0;
-      --accent2: #7b6fff;
-      --text: #f0f0f8;
-      --muted: #8888aa;
-      --card-hover: #1e1e2e;
+      --bg: #0a0a0f; --surface: #13131a; --surface2: #1c1c27;
+      --border: #2a2a3a; --accent: #00e5a0; --accent2: #7b6fff;
+      --text: #f0f0f8; --muted: #8888aa; --card-hover: #1e1e2e;
     }
-
     html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
-
-    /* Background grid */
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; overflow-x: hidden; }
     body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(0,229,160,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,229,160,0.03) 1px, transparent 1px);
-      background-size: 60px 60px;
-      pointer-events: none;
-      z-index: 0;
+      content: ''; position: fixed; inset: 0;
+      background-image: linear-gradient(rgba(0,229,160,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,229,160,0.03) 1px, transparent 1px);
+      background-size: 60px 60px; pointer-events: none; z-index: 0;
     }
-
-    /* NAV */
     nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(10,10,15,0.85);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
-      padding: 0 2rem;
-      height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(10,10,15,0.85); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border); padding: 0 2rem; height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
     }
-
-    .logo {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: 1.4rem;
-      color: var(--text);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .logo span {
-      color: var(--accent);
-    }
-
-    .logo-icon {
-      width: 32px;
-      height: 32px;
-      background: var(--accent);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
-    }
-
-    .nav-badge {
-      font-size: 12px;
-      color: var(--muted);
-      background: var(--surface);
-      border: 1px solid var(--border);
-      padding: 4px 12px;
-      border-radius: 20px;
-    }
-
-    /* HERO */
-    .hero {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      padding: 100px 2rem 80px;
-    }
-
-    .hero-tag {
-      display: inline-block;
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      background: rgba(0,229,160,0.08);
-      border: 1px solid rgba(0,229,160,0.2);
-      padding: 6px 16px;
-      border-radius: 20px;
-      margin-bottom: 28px;
-    }
-
-    .hero h1 {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: clamp(2.4rem, 6vw, 4.5rem);
-      line-height: 1.1;
-      margin-bottom: 24px;
-      letter-spacing: -0.02em;
-    }
-
-    .hero h1 em {
-      font-style: normal;
-      color: var(--accent);
-    }
-
-    .hero p {
-      font-size: 1.1rem;
-      color: var(--muted);
-      max-width: 520px;
-      margin: 0 auto 48px;
-      line-height: 1.7;
-      font-weight: 300;
-    }
-
-    .hero-stats {
-      display: flex;
-      gap: 40px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .stat {
-      text-align: center;
-    }
-
-    .stat-num {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--text);
-    }
-
-    .stat-label {
-      font-size: 12px;
-      color: var(--muted);
-      margin-top: 2px;
-    }
-
-    /* TOOLS SECTION */
-    .tools-section {
-      position: relative;
-      z-index: 1;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 2rem 100px;
-    }
-
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 36px;
-    }
-
-    .section-title {
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      font-size: 1.5rem;
-    }
-
-    .section-line {
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
-
-    .tools-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 16px;
-    }
-
-    .tool-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 28px;
-      text-decoration: none;
-      color: inherit;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      transition: all 0.2s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .tool-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      opacity: 0;
-      transition: opacity 0.2s;
-    }
-
-    .tool-card:hover {
-      background: var(--card-hover);
-      border-color: rgba(0,229,160,0.3);
-      transform: translateY(-3px);
-    }
-
+    .logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.4rem; color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+    .logo span { color: var(--accent); }
+    .logo-icon { width: 32px; height: 32px; background: var(--accent); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+    .nav-badge { font-size: 12px; color: var(--muted); background: var(--surface); border: 1px solid var(--border); padding: 4px 12px; border-radius: 20px; }
+    .hero { position: relative; z-index: 1; text-align: center; padding: 100px 2rem 80px; }
+    .hero-tag { display: inline-block; font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); background: rgba(0,229,160,0.08); border: 1px solid rgba(0,229,160,0.2); padding: 6px 16px; border-radius: 20px; margin-bottom: 28px; }
+    .hero h1 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(2.4rem, 6vw, 4.5rem); line-height: 1.1; margin-bottom: 24px; letter-spacing: -0.02em; }
+    .hero h1 em { font-style: normal; color: var(--accent); }
+    .hero p { font-size: 1.1rem; color: var(--muted); max-width: 560px; margin: 0 auto 48px; line-height: 1.7; font-weight: 300; }
+    .hero-stats { display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; }
+    .stat { text-align: center; }
+    .stat-num { font-family: 'Syne', sans-serif; font-size: 1.8rem; font-weight: 700; color: var(--text); }
+    .stat-label { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .tools-section { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; padding: 0 2rem 60px; }
+    .section-header { display: flex; align-items: center; gap: 16px; margin-bottom: 36px; }
+    .section-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.5rem; }
+    .section-line { flex: 1; height: 1px; background: var(--border); }
+    .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+    .tool-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 28px; text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 14px; transition: all 0.2s ease; position: relative; overflow: hidden; }
+    .tool-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent2)); opacity: 0; transition: opacity 0.2s; }
+    .tool-card:hover { background: var(--card-hover); border-color: rgba(0,229,160,0.3); transform: translateY(-3px); }
     .tool-card:hover::before { opacity: 1; }
-
-    .tool-card.coming-soon {
-      opacity: 0.5;
-      pointer-events: none;
-    }
-
-    .tool-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      flex-shrink: 0;
-    }
-
-    .icon-green { background: rgba(0,229,160,0.12); }
-    .icon-purple { background: rgba(123,111,255,0.12); }
-    .icon-orange { background: rgba(255,165,0,0.12); }
-    .icon-blue { background: rgba(0,180,255,0.12); }
+    .tool-card.coming-soon { opacity: 0.5; pointer-events: none; }
+    .tool-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+    .icon-green { background: rgba(0,229,160,0.12); } .icon-purple { background: rgba(123,111,255,0.12); }
+    .icon-orange { background: rgba(255,165,0,0.12); } .icon-blue { background: rgba(0,180,255,0.12); }
     .icon-pink { background: rgba(255,100,150,0.12); }
+    .tool-meta { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+    .tool-name { font-family: 'Syne', sans-serif; font-size: 1.05rem; font-weight: 600; }
+    .tool-badge { font-size: 10px; font-weight: 600; padding: 3px 9px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; }
+    .badge-live { background: rgba(0,229,160,0.12); color: var(--accent); border: 1px solid rgba(0,229,160,0.25); }
+    .badge-soon { background: rgba(136,136,170,0.1); color: var(--muted); border: 1px solid var(--border); }
+    .badge-hot { background: rgba(255,100,50,0.12); color: #ff7043; border: 1px solid rgba(255,100,50,0.25); }
+    .tool-desc { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
+    .tool-arrow { font-size: 18px; color: var(--accent); align-self: flex-end; opacity: 0; transition: opacity 0.2s, transform 0.2s; }
+    .tool-card:hover .tool-arrow { opacity: 1; transform: translateX(4px); }
 
-    .tool-meta {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 10px;
-    }
+    /* SEO CONTENT SECTION */
+    .seo-section { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; padding: 0 2rem 60px; }
+    .seo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 48px; }
+    @media (max-width: 700px) { .seo-grid { grid-template-columns: 1fr; } }
+    .seo-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 28px; }
+    .seo-card h2 { font-family: 'Syne', sans-serif; font-size: 1.15rem; font-weight: 700; margin-bottom: 12px; color: var(--text); }
+    .seo-card p { font-size: 14px; color: var(--muted); line-height: 1.8; }
+    .seo-card ul { list-style: none; margin-top: 10px; display: flex; flex-direction: column; gap: 7px; }
+    .seo-card ul li { font-size: 13.5px; color: var(--muted); line-height: 1.6; padding-left: 18px; position: relative; }
+    .seo-card ul li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 12px; }
 
-    .tool-name {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.05rem;
-      font-weight: 600;
-    }
+    /* FAQ */
+    .faq-section { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; padding: 0 2rem 80px; }
+    .faq-section h2 { font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 700; text-align: center; margin-bottom: 32px; }
+    .faq-item { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; margin-bottom: 10px; overflow: hidden; }
+    .faq-q { width: 100%; background: none; border: none; color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; padding: 18px 22px; text-align: left; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .faq-q:hover { color: var(--accent); }
+    .faq-arrow { color: var(--muted); font-size: 18px; transition: transform .25s; flex-shrink: 0; }
+    .faq-item.open .faq-arrow { transform: rotate(45deg); color: var(--accent); }
+    .faq-a { font-size: 13.5px; color: var(--muted); line-height: 1.8; max-height: 0; overflow: hidden; transition: max-height .3s ease, padding .3s ease; padding: 0 22px; }
+    .faq-item.open .faq-a { max-height: 200px; padding: 0 22px 18px; }
 
-    .tool-badge {
-      font-size: 10px;
-      font-weight: 600;
-      padding: 3px 9px;
-      border-radius: 20px;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-
-    .badge-live {
-      background: rgba(0,229,160,0.12);
-      color: var(--accent);
-      border: 1px solid rgba(0,229,160,0.25);
-    }
-
-    .badge-soon {
-      background: rgba(136,136,170,0.1);
-      color: var(--muted);
-      border: 1px solid var(--border);
-    }
-
-    .badge-hot {
-      background: rgba(255,100,50,0.12);
-      color: #ff7043;
-      border: 1px solid rgba(255,100,50,0.25);
-    }
-
-    .tool-desc {
-      font-size: 0.875rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    .tool-arrow {
-      font-size: 18px;
-      color: var(--accent);
-      align-self: flex-end;
-      opacity: 0;
-      transition: opacity 0.2s, transform 0.2s;
-    }
-
-    .tool-card:hover .tool-arrow {
-      opacity: 1;
-      transform: translateX(4px);
-    }
-
-    /* FOOTER */
-    footer {
-      position: relative;
-      z-index: 1;
-      border-top: 1px solid var(--border);
-      padding: 40px 2rem;
-      text-align: center;
-    }
-
-    .footer-logo {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: 1.2rem;
-      margin-bottom: 12px;
-    }
-
+    footer { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 40px 2rem; text-align: center; }
+    .footer-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.2rem; margin-bottom: 12px; }
     .footer-logo span { color: var(--accent); }
-
-    footer p {
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 24px;
-      justify-content: center;
-      margin-top: 20px;
-    }
-
-    .footer-links a {
-      font-size: 13px;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
+    footer p { font-size: 13px; color: var(--muted); line-height: 1.7; }
+    .footer-links { display: flex; gap: 24px; justify-content: center; margin-top: 20px; flex-wrap: wrap; }
+    .footer-links a { font-size: 13px; color: var(--muted); text-decoration: none; transition: color .2s; }
     .footer-links a:hover { color: var(--accent); }
-
-    /* Glow blob */
-    .glow {
-      position: fixed;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(0,229,160,0.06) 0%, transparent 70%);
-      border-radius: 50%;
-      pointer-events: none;
-      top: -200px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 0;
-    }
-
-    @media (max-width: 600px) {
-      .hero { padding: 60px 1.5rem 50px; }
-      .tools-grid { grid-template-columns: 1fr; }
-      .hero-stats { gap: 24px; }
-    }
-
-    /* Fade in animation */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
+    .glow { position: fixed; width: 600px; height: 600px; background: radial-gradient(circle, rgba(0,229,160,0.06) 0%, transparent 70%); border-radius: 50%; pointer-events: none; top: -200px; left: 50%; transform: translateX(-50%); z-index: 0; }
+    @media (max-width: 600px) { .hero { padding: 60px 1.5rem 50px; } .tools-grid { grid-template-columns: 1fr; } .hero-stats { gap: 24px; } }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
     .hero-tag { animation: fadeUp 0.5s ease both; }
     .hero h1 { animation: fadeUp 0.5s 0.1s ease both; }
     .hero p { animation: fadeUp 0.5s 0.2s ease both; }
@@ -400,24 +204,12 @@
 <section class="hero">
   <div class="hero-tag">100% Free · No Signup Required</div>
   <h1>Tools that <em>actually</em><br>work for Pakistan</h1>
-  <p>Generate payslips, calculate bills, create documents — all free, all instant, all built for how Pakistan works.</p>
+  <p>Generate salary slips, calculate electricity bills, create documents — all free, all instant, built specifically for how Pakistan works. No account needed, ever.</p>
   <div class="hero-stats">
-    <div class="stat">
-      <div class="stat-num">Free</div>
-      <div class="stat-label">Always & Forever</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">0</div>
-      <div class="stat-label">Signups Needed</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">PKR</div>
-      <div class="stat-label">Local Currency</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">∞</div>
-      <div class="stat-label">Uses Per Day</div>
-    </div>
+    <div class="stat"><div class="stat-num">Free</div><div class="stat-label">Always & Forever</div></div>
+    <div class="stat"><div class="stat-num">0</div><div class="stat-label">Signups Needed</div></div>
+    <div class="stat"><div class="stat-num">PKR</div><div class="stat-label">Local Currency</div></div>
+    <div class="stat"><div class="stat-num">10+</div><div class="stat-label">DISCOs Supported</div></div>
   </div>
 </section>
 
@@ -426,7 +218,6 @@
     <h2 class="section-title">All Tools</h2>
     <div class="section-line"></div>
   </div>
-
   <div class="tools-grid">
 
     <a href="/payslip-generator.html" class="tool-card">
@@ -435,17 +226,17 @@
         <div class="tool-name">Salary Slip Generator</div>
         <span class="tool-badge badge-live">Live</span>
       </div>
-      <div class="tool-desc">Generate professional payslips for Pakistan private sector. Includes EOBI, PESSI, allowances, deductions. Download as PDF instantly.</div>
+      <div class="tool-desc">Generate professional salary slips for Pakistan private sector. Includes EOBI, PESSI, HRA, medical, overtime and all deductions. Download as PDF instantly — no watermark.</div>
       <div class="tool-arrow">→</div>
     </a>
 
-    <a href="#" class="tool-card coming-soon">
+    <a href="/electricity-calculator.html" class="tool-card">
       <div class="tool-icon icon-orange">⚡</div>
       <div class="tool-meta">
         <div class="tool-name">Electricity Bill Calculator</div>
-        <span class="tool-badge badge-soon">Coming Soon</span>
+        <span class="tool-badge badge-live">Live</span>
       </div>
-      <div class="tool-desc">Calculate your LESCO / WAPDA / HESCO bill with full slab breakdown before it arrives.</div>
+      <div class="tool-desc">Calculate your LESCO, MEPCO, FESCO, IESCO, HESCO or any DISCO bill. Full slab breakdown, FCA, GST, meter rent — before your bill arrives.</div>
       <div class="tool-arrow">→</div>
     </a>
 
@@ -465,7 +256,7 @@
         <div class="tool-name">Desi Cooking Unit Converter</div>
         <span class="tool-badge badge-soon">Coming Soon</span>
       </div>
-      <div class="tool-desc">Convert tola, pao, seer to grams and kg. Finally — a converter that understands Pakistani recipes.</div>
+      <div class="tool-desc">Convert tola, pao, seer to grams and kg. Finally — a unit converter that understands Pakistani recipes.</div>
       <div class="tool-arrow">→</div>
     </a>
 
@@ -492,15 +283,120 @@
   </div>
 </section>
 
+<!-- SEO CONTENT SECTION -->
+<section class="seo-section">
+  <div class="section-header">
+    <h2 class="section-title">Why GoZapTools?</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="seo-grid">
+    <div class="seo-card">
+      <h2>Built Specifically for Pakistan</h2>
+      <p>Most online tools are built for the US or UK. GoZapTools is built from the ground up for Pakistan — PKR currency, local DISCOs, Pakistan salary structures, EOBI and PESSI fields, and more. No irrelevant fields. No confusion.</p>
+    </div>
+    <div class="seo-card">
+      <h2>Zero Cost. Zero Signup.</h2>
+      <p>Every tool on GoZapTools is completely free — no hidden premium tiers, no watermarks on downloads, no email required. We believe Pakistanis deserve access to quality tools without barriers.</p>
+    </div>
+    <div class="seo-card">
+      <h2>Free Salary Slip Generator Pakistan</h2>
+      <p>Our payslip generator is the only one built for Pakistan's private sector. It includes:</p>
+      <ul>
+        <li>Basic salary, HRA, medical, conveyance, overtime</li>
+        <li>EOBI and PESSI deductions</li>
+        <li>Income tax and loan deduction fields</li>
+        <li>Clean A4 PDF download — no watermark</li>
+        <li>Works for any company size, any city</li>
+      </ul>
+    </div>
+    <div class="seo-card">
+      <h2>Electricity Bill Calculator – All DISCOs</h2>
+      <p>Our electricity bill calculator supports all 10 distribution companies in Pakistan:</p>
+      <ul>
+        <li>LESCO (Lahore), MEPCO (Multan), FESCO (Faisalabad)</li>
+        <li>IESCO (Islamabad), GEPCO (Gujranwala)</li>
+        <li>HESCO (Hyderabad), SEPCO (Sukkur)</li>
+        <li>PESCO (Peshawar), QESCO (Quetta), TESCO</li>
+        <li>Full slab breakdown with FCA, GST and meter rent</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ SECTION -->
+<section class="faq-section">
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      Are all GoZapTools free to use?
+      <span class="faq-arrow">+</span>
+    </button>
+    <div class="faq-a">Yes — every single tool on GoZapTools is 100% free. No signup, no login, no credit card, no hidden charges. We earn through advertising, which keeps everything free for you.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      Can I generate a salary slip online in Pakistan for free?
+      <span class="faq-arrow">+</span>
+    </button>
+    <div class="faq-a">Absolutely. Our free salary slip generator is built specifically for Pakistan's private sector. Enter company details, employee info, earnings and deductions — and download a clean A4 payslip PDF instantly. No watermark, no login required.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      How accurate is the electricity bill calculator?
+      <span class="faq-arrow">+</span>
+    </button>
+    <div class="faq-a">We use NEPRA's officially approved 2025 tariff rates. The estimate includes energy charges by slab, Fuel Cost Adjustment (FCA), GST at 18%, electricity duty, and meter rent. The actual FCA changes monthly, so your real bill may vary slightly, but our estimate is very close to the actual amount.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      Is my data safe? Do you store my information?
+      <span class="faq-arrow">+</span>
+    </button>
+    <div class="faq-a">Your data never leaves your device. All GoZapTools run entirely in your browser using JavaScript. No information — company names, salaries, employee details — is ever sent to any server. We have no database of user data.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      Which DISCO should I select in the electricity calculator?
+      <span class="faq-arrow">+</span>
+    </button>
+    <div class="faq-a">Select based on your city: LESCO for Lahore, MEPCO for Multan and South Punjab, FESCO for Faisalabad, IESCO for Islamabad and Rawalpindi, GEPCO for Gujranwala, HESCO for Hyderabad, SEPCO for Sukkur, PESCO for Peshawar and KPK, QESCO for Quetta and Balochistan, and TESCO for Tribal Areas.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      Will more tools be added?
+      <span class="faq-arrow">+</span>
+    </button>
+    <div class="faq-a">Yes! We are actively building more tools for Pakistan including a CV/resume builder, WhatsApp chat screenshot maker, desi cooking unit converter, loan EMI calculator, and more. New tools are added regularly.</div>
+  </div>
+
+</section>
+
 <footer>
   <div class="footer-logo">Go<span>Zap</span>Tools</div>
-  <p>Free tools built for Pakistan. No account. No nonsense. Just results.</p>
+  <p>Free online tools built for Pakistan. No account. No nonsense. Just results.<br>
+  <span style="font-size:12px">© 2025 GoZapTools · All tools run in your browser · Your data stays private</span></p>
   <div class="footer-links">
     <a href="/">Home</a>
-    <a href="/payslip-generator.html">Payslip Generator</a>
+    <a href="/payslip-generator.html">Salary Slip Generator</a>
+    <a href="/electricity-calculator.html">Electricity Calculator</a>
     <a href="mailto:hello@gozaptools.com">Contact</a>
   </div>
 </footer>
+
+<script>
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+</script>
 
 </body>
 </html>
