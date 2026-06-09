@@ -112,7 +112,7 @@
     .net-label{font-size:10px;opacity:.6;text-transform:uppercase;letter-spacing:.05em}
     .net-amount{font-size:20px;font-weight:800;color:#00e5a0}
     .slip-note{font-size:9px;opacity:.45;text-align:right;line-height:1.5}
-    .slip-stamp{padding:9px 24px;background:#f8f8fc;font-size:9px;color:#bbb;display:flex;justify-content:space-between;border-top:1px solid #eee}
+
 
     /* SEO CONTENT */
     .seo-section{position:relative;z-index:1;max-width:var(--max);margin:0 auto;padding:0 1.5rem 60px}
@@ -308,10 +308,7 @@
           <div class="slip-note">Computer generated payslip.<br>No signature required.</div>
         </div>
 
-        <div class="slip-stamp">
-          <span>Generated via GoZapTools.com</span>
-          <span id="p-gendate"></span>
-        </div>
+
 
       </div>
     </div>
@@ -450,7 +447,7 @@ function update(){
   document.getElementById('p-total-ded').textContent=totalDed>0?sym+' '+totalDed.toLocaleString():'—';
   document.getElementById('p-net').textContent=net>0?sym+' '+net.toLocaleString():'—';
 
-  document.getElementById('p-gendate').textContent='Generated: '+new Date().toLocaleDateString('en-GB');
+
 }
 
 function toggleFaq(btn){
