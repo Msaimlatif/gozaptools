@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free CV / Resume Builder Online – Download PDF | GoZapTools</title>
+  <meta name="description" content="Build a professional CV or resume online for free. 3 clean templates, fill in your details, download as PDF instantly. No login, no watermark, works worldwide." />
+  <link rel="canonical" href="https://www.gozaptools.com/cv-builder.html" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2BWW2MFZCQ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2BWW2MFZCQ');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#0a0a0f;--surface:#13131a;--surface2:#1c1c27;
+      --border:#2a2a3a;--accent:#00e5a0;--text:#f0f0f8;--muted:#8888aa;--max:1280px
+    }
+    body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+    body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,229,160,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,160,.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0}
+
+    nav{position:sticky;top:0;z-index:100;background:rgba(10,10,15,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+    .nav-inner{max-width:var(--max);margin:0 auto;padding:0 1.25rem;height:56px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.15rem;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:7px}
+    .logo span{color:var(--accent)}
+    .logo-icon{width:26px;height:26px;background:var(--accent);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px}
+    .back-link{font-size:13px;color:var(--muted);text-decoration:none;transition:color .2s}
+    .back-link:hover{color:var(--accent)}
+
+    .page-header{position:relative;z-index:1;max-width:var(--max);margin:0 auto;padding:24px 1.25rem 16px}
+    .page-header h1{font-family:'Syne',sans-serif;font-size:clamp(1.3rem,3vw,1.9rem);font-weight:800;margin-bottom:4px}
+    .page-header h1 span{color:var(--accent)}
+    .page-header p{font-size:.85rem;color:var(--muted);line-height:1.6}
+
+    /* Template picker */
+    .tpl-bar{position:relative;z-index:1;max-width:var(--max);margin:0 auto;padding:0 1.25rem 16px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+    .tpl-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}
+    .tpl-btn{padding:7px 16px;border-radius:9px;border:1px solid var(--border);background:var(--surface);color:var(--muted);font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;cursor:pointer;transition:all .15s}
+    .tpl-btn.active{background:rgba(0,229,160,.1);border-color:rgba(0,229,160,.4);color:var(--accent)}
+
+    /* Layout */
+    .page-wrap{position:relative;z-index:1;max-width:var(--max);margin:0 auto;padding:0 1.25rem 60px;display:grid;grid-template-columns:320px 1fr;gap:16px;align-items:start}
+    @media(max-width:860px){.page-wrap{grid-template-columns:1fr}}
+
+    /* Form panel */
+    .form-panel{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:20px;position:sticky;top:68px;max-height:calc(100vh - 88px);overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border) transparent}
+    @media(max-width:860px){.form-panel{position:static;max-height:none}}
+    .panel-title{font-family:'Syne',sans-serif;font-weight:700;font-size:.9rem;margin-bottom:16px;display:flex;align-items:center;gap:7px}
+    .dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+    .sec-lbl{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:9px}
+    .fsec{margin-bottom:16px}
+    .fg{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    .fg.c1{grid-template-columns:1fr}
+    .field{display:flex;flex-direction:column;gap:4px}
+    .field.full{grid-column:1/-1}
+    label{font-size:11px;color:var(--muted);font-weight:500}
+    input,textarea,select{background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:13px;padding:8px 10px;width:100%;transition:border-color .2s;outline:none;-webkit-appearance:none;resize:vertical}
+    input:focus,textarea:focus,select:focus{border-color:var(--accent)}
+    input::placeholder,textarea::placeholder{color:var(--muted);opacity:.45}
+    textarea{min-height:64px;line-height:1.5}
+    .hr{height:1px;background:var(--border);margin:13px 0}
+    .ritem{background:var(--surface2);border:1px solid var(--border);border-radius:9px;padding:12px;margin-bottom:9px}
+    .ritem-hd{font-size:11px;font-weight:600;color:var(--text);margin-bottom:9px;display:flex;justify-content:space-between;align-items:center}
+    .btn-rm{background:none;border:none;color:var(--muted);cursor:pointer;font-size:15px;line-height:1;padding:1px 4px;transition:color .15s}
+    .btn-rm:hover{color:#ff6b6b}
+    .btn-add{width:100%;padding:8px;background:none;border:1px dashed var(--border);border-radius:8px;color:var(--muted);font-family:'DM Sans',sans-serif;font-size:12px;cursor:pointer;transition:all .15s;margin-top:2px}
+    .btn-add:hover{border-color:var(--accent);color:var(--accent)}
+    .btn-dl{width:100%;margin-top:14px;padding:13px;background:var(--accent);color:#0a0a0f;border:none;border-radius:10px;font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;cursor:pointer;transition:opacity .2s}
+    .btn-dl:hover{opacity:.9}
+
+    /* Preview */
+    .preview-panel{background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden}
+    .preview-hd{padding:10px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+    .preview-title{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:6px}
+    .live-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 1.5s infinite}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+    .preview-bg{padding:16px;background:#dde0e5}
+    @media(max-width:860px){.preview-bg{padding:10px}}
+
+    /* ===== CV DOCUMENT STYLES ===== */
+    /* Scoped inside #cv-doc so they never affect the app UI */
+    #cv-doc{
+      background:white;
+      width:100%;
+      font-family:'Inter',sans-serif;
+      color:#222;
+      border-radius:4px;
+      overflow:hidden;
+      box-shadow:0 2px 16px rgba(0,0,0,.15);
+      font-size:9pt;
+      line-height:1.4;
+    }
+
+    /* ---- Template: Classic ---- */
+    #cv-doc.tpl-classic .cv-hd{background:#1e2a4a;color:white;padding:22px 26px 18px}
+    #cv-doc.tpl-classic .cv-name{font-size:19pt;font-weight:700;letter-spacing:-.3px;margin-bottom:2px;line-height:1.15}
+    #cv-doc.tpl-classic .cv-role{font-size:9.5pt;color:#7dd3b8;font-weight:500;margin-bottom:10px}
+    #cv-doc.tpl-classic .cv-contacts{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:8pt;opacity:.8}
+    #cv-doc.tpl-classic .cv-body{display:grid;grid-template-columns:160px 1fr}
+    #cv-doc.tpl-classic .cv-sidebar{background:#f5f6f8;padding:18px 14px;border-right:1px solid #e4e6ea}
+    #cv-doc.tpl-classic .cv-main{padding:18px 20px}
+    #cv-doc.tpl-classic .sec-title{font-size:7.5pt;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#1e2a4a;border-bottom:2px solid #7dd3b8;padding-bottom:4px;margin-bottom:10px}
+    #cv-doc.tpl-classic .cv-sec{margin-bottom:16px}
+    #cv-doc.tpl-classic .item-title{font-size:9.5pt;font-weight:600;color:#1e2a4a;margin-bottom:1px}
+    #cv-doc.tpl-classic .item-sub{font-size:8pt;color:#666;margin-bottom:3px}
+    #cv-doc.tpl-classic .item-desc{font-size:8.5pt;color:#444;line-height:1.55}
+    #cv-doc.tpl-classic .skill-tag{display:inline-block;background:#e8f4f0;color:#1e6b50;font-size:7.5pt;padding:2px 8px;border-radius:20px;margin:2px 2px 2px 0}
+    #cv-doc.tpl-classic .body-text{font-size:8.5pt;color:#444;line-height:1.6}
+    #cv-doc.tpl-classic .item-block{margin-bottom:11px;padding-bottom:11px;border-bottom:1px solid #eeeff2}
+    #cv-doc.tpl-classic .item-block:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+
+    /* ---- Template: Modern ---- */
+    #cv-doc.tpl-modern .cv-hd{background:linear-gradient(135deg,#4f46e5 0%,#7c3aed 100%);color:white;padding:22px 26px 18px}
+    #cv-doc.tpl-modern .cv-name{font-size:18pt;font-weight:700;margin-bottom:3px;line-height:1.2}
+    #cv-doc.tpl-modern .cv-role{font-size:9.5pt;opacity:.88;margin-bottom:10px;font-weight:400}
+    #cv-doc.tpl-modern .cv-contacts{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:8pt;opacity:.8}
+    #cv-doc.tpl-modern .cv-body{padding:20px 26px}
+    #cv-doc.tpl-modern .sec-title{font-size:9pt;font-weight:600;color:#4f46e5;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+    #cv-doc.tpl-modern .sec-title::after{content:'';flex:1;height:1px;background:#e4e6ea}
+    #cv-doc.tpl-modern .cv-sec{margin-bottom:18px}
+    #cv-doc.tpl-modern .item-block{display:flex;gap:10px;margin-bottom:11px}
+    #cv-doc.tpl-modern .item-dot{width:7px;height:7px;border-radius:50%;background:#4f46e5;flex-shrink:0;margin-top:3px}
+    #cv-doc.tpl-modern .item-title{font-size:9.5pt;font-weight:600;color:#1a1a2e;margin-bottom:1px}
+    #cv-doc.tpl-modern .item-sub{font-size:8pt;color:#777;margin-bottom:3px}
+    #cv-doc.tpl-modern .item-desc{font-size:8.5pt;color:#444;line-height:1.55}
+    #cv-doc.tpl-modern .skill-tag{display:inline-block;border:1px solid #4f46e5;color:#4f46e5;font-size:7.5pt;padding:2px 9px;border-radius:4px;margin:2px 2px 2px 0}
+    #cv-doc.tpl-modern .body-text{font-size:8.5pt;color:#444;line-height:1.6}
+
+    /* ---- Template: Minimal ---- */
+    #cv-doc.tpl-minimal .cv-hd{padding:26px 28px 18px;border-bottom:2.5px solid #1a1a2e}
+    #cv-doc.tpl-minimal .cv-name{font-size:20pt;font-weight:700;color:#1a1a2e;letter-spacing:-.3px;margin-bottom:2px;line-height:1.15}
+    #cv-doc.tpl-minimal .cv-role{font-size:9.5pt;color:#555;margin-bottom:10px;letter-spacing:.02em}
+    #cv-doc.tpl-minimal .cv-contacts{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:8pt;color:#666}
+    #cv-doc.tpl-minimal .cv-body{padding:18px 28px 24px}
+    #cv-doc.tpl-minimal .sec-title{font-size:7.5pt;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:#555;margin-bottom:10px;padding-bottom:5px;border-bottom:1px solid #ddd}
+    #cv-doc.tpl-minimal .cv-sec{margin-bottom:18px}
+    #cv-doc.tpl-minimal .item-block{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:11px}
+    #cv-doc.tpl-minimal .item-left{flex:1}
+    #cv-doc.tpl-minimal .item-right{font-size:8pt;color:#888;white-space:nowrap;flex-shrink:0;padding-top:2px}
+    #cv-doc.tpl-minimal .item-title{font-size:9.5pt;font-weight:600;color:#1a1a2e;margin-bottom:1px}
+    #cv-doc.tpl-minimal .item-sub{font-size:8pt;color:#666;margin-bottom:3px}
+    #cv-doc.tpl-minimal .item-desc{font-size:8.5pt;color:#444;line-height:1.55}
+    #cv-doc.tpl-minimal .skill-tag{display:inline-block;font-size:8pt;color:#444;padding:0 10px 0 0;border-right:1px solid #ccc;margin:1px 0}
+    #cv-doc.tpl-minimal .skill-tag:last-child{border-right:none}
+    #cv-doc.tpl-minimal .body-text{font-size:8.5pt;color:#444;line-height:1.65}
+
+    /* SEO */
+    .seo-section{position:relative;z-index:1;max-width:var(--max);margin:0 auto;padding:0 1.25rem 60px}
+    .seo-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+    @media(max-width:700px){.seo-grid{grid-template-columns:1fr}}
+    .seo-card{background:var(--surface);border:1px solid var(--border);border-radius:13px;padding:20px}
+    .seo-card h2{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;margin-bottom:9px}
+    .seo-card p{font-size:.83rem;color:var(--muted);line-height:1.8;margin-bottom:7px}
+    .seo-card p:last-child{margin-bottom:0}
+    .seo-card ul{list-style:none;display:flex;flex-direction:column;gap:5px;margin-top:4px}
+    .seo-card ul li{font-size:.82rem;color:var(--muted);padding-left:16px;position:relative;line-height:1.55}
+    .seo-card ul li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:10px}
+    .sec-hd{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+    .sec-hd h2{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;white-space:nowrap}
+    .sec-hd-line{flex:1;height:1px;background:var(--border)}
+    .faq-item{background:var(--surface);border:1px solid var(--border);border-radius:11px;margin-bottom:7px;overflow:hidden}
+    .faq-q{width:100%;background:none;border:none;color:var(--text);font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:500;padding:14px 17px;text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;line-height:1.4}
+    .faq-q:hover{color:var(--accent)}
+    .faq-arr{color:var(--muted);font-size:17px;transition:transform .25s;flex-shrink:0}
+    .faq-item.open .faq-arr{transform:rotate(45deg);color:var(--accent)}
+    .faq-a{font-size:.83rem;color:var(--muted);line-height:1.8;max-height:0;overflow:hidden;transition:max-height .3s,padding .3s;padding:0 17px}
+    .faq-item.open .faq-a{max-height:200px;padding:0 17px 14px}
+
+    /* ===== PRINT STYLES ===== */
+    @media print{
+      html,body{margin:0;padding:0;background:white!important}
+      body::before{display:none!important}
+      /* Hide everything except the CV doc */
+      nav,.page-header,.tpl-bar,.form-panel,.preview-hd,.seo-section{display:none!important}
+      .page-wrap{display:block!important;padding:0!important;margin:0!important;max-width:100%!important}
+      .preview-panel{border:none!important;border-radius:0!important;box-shadow:none!important}
+      .preview-bg{padding:0!important;background:white!important}
+      #cv-doc{
+        box-shadow:none!important;
+        border-radius:0!important;
+        width:100%!important;
+        min-height:auto!important;
+        page-break-inside:avoid;
+      }
+      /* Force background colours to print */
+      #cv-doc.tpl-classic .cv-hd,
+      #cv-doc.tpl-modern .cv-hd{
+        -webkit-print-color-adjust:exact!important;
+        print-color-adjust:exact!important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo"><div class="logo-icon">⚡</div>Go<span>Zap</span>Tools</a>
+    <a href="/" class="back-link">← All Tools</a>
+  </div>
+</nav>
+
+<div class="page-header">
+  <h1>Free <span>CV / Resume</span> Builder</h1>
+  <p>Pick a template, fill in your details, download a clean PDF — no watermark, no login, completely free.</p>
+</div>
+
+<div class="tpl-bar">
+  <span class="tpl-label">Template:</span>
+  <button class="tpl-btn active" onclick="setTpl('classic',this)">📋 Classic</button>
+  <button class="tpl-btn" onclick="setTpl('modern',this)">🎨 Modern</button>
+  <button class="tpl-btn" onclick="setTpl('minimal',this)">✦ Minimal</button>
+</div>
+
+<div class="page-wrap">
+
+  <!-- FORM PANEL -->
+  <div class="form-panel">
+    <div class="panel-title"><div class="dot"></div>Your Details</div>
+
+    <div class="fsec">
+      <span class="sec-lbl">Personal Info</span>
+      <div class="fg c1">
+        <div class="field"><label>Full Name</label><input type="text" id="f-name" placeholder="Jane Smith" oninput="render()" /></div>
+        <div class="field"><label>Job Title / Profession</label><input type="text" id="f-title" placeholder="Marketing Manager" oninput="render()" /></div>
+        <div class="field"><label>Email Address</label><input type="email" id="f-email" placeholder="jane@email.com" oninput="render()" /></div>
+      </div>
+      <div class="fg" style="margin-top:8px">
+        <div class="field"><label>Phone</label><input type="text" id="f-phone" placeholder="+1 555 000 0000" oninput="render()" /></div>
+        <div class="field"><label>Location</label><input type="text" id="f-location" placeholder="New York, USA" oninput="render()" /></div>
+        <div class="field"><label>LinkedIn (optional)</label><input type="text" id="f-linkedin" placeholder="linkedin.com/in/jane" oninput="render()" /></div>
+        <div class="field"><label>Website (optional)</label><input type="text" id="f-website" placeholder="janesmith.com" oninput="render()" /></div>
+      </div>
+    </div>
+
+    <div class="hr"></div>
+
+    <div class="fsec">
+      <span class="sec-lbl">Professional Summary</span>
+      <textarea id="f-summary" placeholder="2–3 sentences about your background, key skills, and career goals..." oninput="render()"></textarea>
+    </div>
+
+    <div class="hr"></div>
+
+    <div class="fsec">
+      <span class="sec-lbl">Work Experience</span>
+      <div id="exp-list"></div>
+      <button class="btn-add" onclick="addItem('exp')">+ Add Experience</button>
+    </div>
+
+    <div class="hr"></div>
+
+    <div class="fsec">
+      <span class="sec-lbl">Education</span>
+      <div id="edu-list"></div>
+      <button class="btn-add" onclick="addItem('edu')">+ Add Education</button>
+    </div>
+
+    <div class="hr"></div>
+
+    <div class="fsec">
+      <span class="sec-lbl">Skills</span>
+      <div class="field"><label>Skills (comma separated)</label>
+        <input type="text" id="f-skills" placeholder="Photoshop, Project Management, Python" oninput="render()" />
+      </div>
+    </div>
+
+    <div class="hr"></div>
+
+    <div class="fsec">
+      <span class="sec-lbl">Languages (optional)</span>
+      <div class="field"><label>Languages</label>
+        <input type="text" id="f-langs" placeholder="English (Native), Spanish (B2)" oninput="render()" />
+      </div>
+    </div>
+
+    <button class="btn-dl" onclick="window.print()">⬇ Download CV as PDF</button>
+  </div>
+
+  <!-- PREVIEW PANEL -->
+  <div class="preview-panel">
+    <div class="preview-hd">
+      <div class="preview-title"><div class="live-dot"></div>Live Preview</div>
+      <span style="font-size:11px;color:var(--muted)">Updates as you type</span>
+    </div>
+    <div class="preview-bg">
+      <div id="cv-doc" class="tpl-classic"></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- SEO CONTENT -->
+<div class="seo-section">
+  <div class="sec-hd"><h2>About This Tool</h2><div class="sec-hd-line"></div></div>
+  <div class="seo-grid">
+    <div class="seo-card">
+      <h2>Free CV Builder — Works Worldwide</h2>
+      <p>Need to create a professional CV quickly and for free? GoZapTools CV Builder gives you three genuine templates used in real hiring processes. Fill in your details, see the live preview, and download a clean PDF — no watermark, no account needed.</p>
+    </div>
+    <div class="seo-card">
+      <h2>3 Templates for Every Industry</h2>
+      <ul>
+        <li><strong>Classic</strong> — two-column, dark navy header. Suits finance, corporate, and senior roles</li>
+        <li><strong>Modern</strong> — purple gradient header with clean sections. Great for tech and creative fields</li>
+        <li><strong>Minimal</strong> — clean black and white. Perfect for academic, research, and executive applications</li>
+      </ul>
+    </div>
+  </div>
+  <div class="sec-hd" style="margin-top:8px"><h2>FAQs</h2><div class="sec-hd-line"></div></div>
+  <div class="faq-item"><button class="faq-q" onclick="tFaq(this)">Is the CV builder free with no watermark?<span class="faq-arr">+</span></button><div class="faq-a">Yes — completely free, no account, no watermark on your download. Ever.</div></div>
+  <div class="faq-item"><button class="faq-q" onclick="tFaq(this)">How do I save my CV as a PDF?<span class="faq-arr">+</span></button><div class="faq-a">Click "Download CV as PDF". Your browser print dialog opens — select "Save as PDF" as the destination. Works on Chrome, Safari, Firefox, Edge on desktop and mobile.</div></div>
+  <div class="faq-item"><button class="faq-q" onclick="tFaq(this)">Will empty sections show in my PDF?<span class="faq-arr">+</span></button><div class="faq-a">No. Any section you leave blank is automatically hidden. Only the content you enter appears in the final CV.</div></div>
+  <div class="faq-item"><button class="faq-q" onclick="tFaq(this)">Does this work for US resumes and UK CVs?<span class="faq-arr">+</span></button><div class="faq-a">Yes. All three templates follow international standards used in the US, UK, UAE, Canada, Europe, and beyond.</div></div>
+</div>
+
+<script>
+let curTpl = 'classic';
+let expData = [];
+let eduData = [];
+let expCount = 0;
+let eduCount = 0;
+
+function setTpl(name, btn) {
+  curTpl = name;
+  document.querySelectorAll('.tpl-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  render();
+}
+
+function v(id) { const el = document.getElementById(id); return el ? el.value.trim() : ''; }
+function esc(s) {
+  return String(s)
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/\n/g,'<br>');
+}
+
+// ---- Add/Remove items ----
+function addItem(type) {
+  if (type === 'exp') {
+    const idx = expCount++;
+    expData.push({idx, role:'', company:'', period:'', desc:''});
+  } else {
+    const idx = eduCount++;
+    eduData.push({idx, degree:'', institution:'', period:'', grade:''});
+  }
+  rebuildForm();
+  render();
+}
+
+function removeItem(type, idx) {
+  if (type === 'exp') expData = expData.filter(e => e.idx !== idx);
+  else eduData = eduData.filter(e => e.idx !== idx);
+  rebuildForm();
+  render();
+}
+
+function rebuildForm() {
+  // Experience
+  document.getElementById('exp-list').innerHTML = expData.map((e, i) => `
+    <div class="ritem">
+      <div class="ritem-hd">
+        <span>Experience ${i+1}</span>
+        <button class="btn-rm" onclick="removeItem('exp',${e.idx})">×</button>
+      </div>
+      <div class="fg c1" style="gap:7px">
+        <div class="fg">
+          <div class="field"><label>Job Title</label><input type="text" value="${esc(e.role)}" placeholder="Product Manager" oninput="expData[${i}].role=this.value;render()" /></div>
+          <div class="field"><label>Company</label><input type="text" value="${esc(e.company)}" placeholder="Apple Inc." oninput="expData[${i}].company=this.value;render()" /></div>
+        </div>
+        <div class="field"><label>Period</label><input type="text" value="${esc(e.period)}" placeholder="Mar 2021 – Present" oninput="expData[${i}].period=this.value;render()" /></div>
+        <div class="field"><label>Responsibilities / Achievements</label><textarea placeholder="Key achievements and responsibilities..." oninput="expData[${i}].desc=this.value;render()">${esc(e.desc)}</textarea></div>
+      </div>
+    </div>`).join('');
+
+  // Education
+  document.getElementById('edu-list').innerHTML = eduData.map((e, i) => `
+    <div class="ritem">
+      <div class="ritem-hd">
+        <span>Education ${i+1}</span>
+        <button class="btn-rm" onclick="removeItem('edu',${e.idx})">×</button>
+      </div>
+      <div class="fg c1" style="gap:7px">
+        <div class="field"><label>Degree / Qualification</label><input type="text" value="${esc(e.degree)}" placeholder="BSc Computer Science" oninput="eduData[${i}].degree=this.value;render()" /></div>
+        <div class="fg">
+          <div class="field"><label>Institution</label><input type="text" value="${esc(e.institution)}" placeholder="MIT" oninput="eduData[${i}].institution=this.value;render()" /></div>
+          <div class="field"><label>Years</label><input type="text" value="${esc(e.period)}" placeholder="2018 – 2022" oninput="eduData[${i}].period=this.value;render()" /></div>
+        </div>
+        <div class="field"><label>Grade / Result (optional)</label><input type="text" value="${esc(e.grade)}" placeholder="First Class Honours / GPA 3.9" oninput="eduData[${i}].grade=this.value;render()" /></div>
+      </div>
+    </div>`).join('');
+}
+
+// ---- Render CV ----
+function render() {
+  const name     = v('f-name');
+  const title    = v('f-title');
+  const email    = v('f-email');
+  const phone    = v('f-phone');
+  const location = v('f-location');
+  const linkedin = v('f-linkedin');
+  const website  = v('f-website');
+  const summary  = v('f-summary');
+  const skills   = v('f-skills').split(',').map(s=>s.trim()).filter(Boolean);
+  const langs    = v('f-langs').split(',').map(s=>s.trim()).filter(Boolean);
+
+  const contacts = [email,phone,location,linkedin,website].filter(Boolean);
+  const contactHtml = contacts.map(c=>`<span>${esc(c)}</span>`).join('');
+
+  // Section builders
+  const summaryHtml = summary ? secWrap('Summary',`<div class="body-text">${esc(summary)}</div>`) : '';
+
+  const validExp = expData.filter(e=>e.role||e.company);
+  const expHtml = validExp.length ? secWrap('Work Experience', validExp.map(e => itemBlock(e.role||'', e.company, e.period, e.desc, e.grade||'')).join('')) : '';
+
+  const validEdu = eduData.filter(e=>e.degree||e.institution);
+  const eduHtml = validEdu.length ? secWrap('Education', validEdu.map(e => itemBlock(e.degree||'', e.institution, e.period, e.grade, '')).join('')) : '';
+
+  const skillsHtml = skills.length ? secWrap('Skills', skills.map(s=>`<span class="skill-tag">${esc(s)}</span>`).join(' ')) : '';
+  const langsHtml  = langs.length  ? secWrap('Languages', langs.map(s=>`<span class="skill-tag">${esc(s)}</span>`).join(' ')) : '';
+
+  const doc = document.getElementById('cv-doc');
+  doc.className = 'tpl-' + curTpl;
+
+  if (curTpl === 'classic') {
+    doc.innerHTML = `
+      <div class="cv-hd">
+        <div class="cv-name">${esc(name || 'Your Name')}</div>
+        ${title ? `<div class="cv-role">${esc(title)}</div>` : ''}
+        ${contacts.length ? `<div class="cv-contacts">${contactHtml}</div>` : ''}
+      </div>
+      <div class="cv-body">
+        <div class="cv-sidebar">
+          ${skillsHtml}
+          ${langsHtml}
+          ${summary ? secWrap('About', `<div class="body-text">${esc(summary)}</div>`) : ''}
+        </div>
+        <div class="cv-main">
+          ${expHtml}
+          ${eduHtml}
+        </div>
+      </div>`;
+  } else if (curTpl === 'modern') {
+    doc.innerHTML = `
+      <div class="cv-hd">
+        <div class="cv-name">${esc(name || 'Your Name')}</div>
+        ${title ? `<div class="cv-role">${esc(title)}</div>` : ''}
+        ${contacts.length ? `<div class="cv-contacts">${contactHtml}</div>` : ''}
+      </div>
+      <div class="cv-body">
+        ${summaryHtml}
+        ${expHtml}
+        ${eduHtml}
+        ${skillsHtml}
+        ${langsHtml}
+      </div>`;
+  } else {
+    // Minimal uses different item layout
+    const expMinimal = validExp.length ? secWrap('Experience', validExp.map(e => `
+      <div class="item-block">
+        <div class="item-left">
+          <div class="item-title">${esc(e.role||'')}</div>
+          <div class="item-sub">${esc(e.company||'')}</div>
+          ${e.desc ? `<div class="item-desc" style="margin-top:3px">${esc(e.desc)}</div>` : ''}
+        </div>
+        <div class="item-right">${esc(e.period||'')}</div>
+      </div>`).join('')) : '';
+
+    const eduMinimal = validEdu.length ? secWrap('Education', validEdu.map(e => `
+      <div class="item-block">
+        <div class="item-left">
+          <div class="item-title">${esc(e.degree||'')}</div>
+          <div class="item-sub">${esc(e.institution||'')}</div>
+          ${e.grade ? `<div class="item-desc" style="margin-top:2px">${esc(e.grade)}</div>` : ''}
+        </div>
+        <div class="item-right">${esc(e.period||'')}</div>
+      </div>`).join('')) : '';
+
+    doc.innerHTML = `
+      <div class="cv-hd">
+        <div class="cv-name">${esc(name || 'Your Name')}</div>
+        ${title ? `<div class="cv-role">${esc(title)}</div>` : ''}
+        ${contacts.length ? `<div class="cv-contacts">${contactHtml}</div>` : ''}
+      </div>
+      <div class="cv-body">
+        ${summaryHtml}
+        ${expMinimal}
+        ${eduMinimal}
+        ${skillsHtml}
+        ${langsHtml}
+      </div>`;
+  }
+}
+
+function secWrap(title, content) {
+  return `<div class="cv-sec"><div class="sec-title">${title}</div>${content}</div>`;
+}
+
+function itemBlock(title, sub, period, desc, grade) {
+  const subLine = [sub, period].filter(Boolean).join(' · ');
+  if (curTpl === 'modern') {
+    return `<div class="item-block">
+      <div class="item-dot"></div>
+      <div>
+        <div class="item-title">${esc(title)}</div>
+        ${subLine ? `<div class="item-sub">${esc(subLine)}</div>` : ''}
+        ${desc ? `<div class="item-desc">${esc(desc)}</div>` : ''}
+      </div>
+    </div>`;
+  }
+  return `<div class="item-block">
+    <div class="item-title">${esc(title)}</div>
+    ${subLine ? `<div class="item-sub">${esc(subLine)}</div>` : ''}
+    ${desc ? `<div class="item-desc">${esc(desc)}</div>` : ''}
+  </div>`;
+}
+
+function tFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const open = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!open) item.classList.add('open');
+}
+
+// Init
+rebuildForm();
+render();
+</script>
+</body>
+</html>
