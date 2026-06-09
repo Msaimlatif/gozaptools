@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free CV / Resume Builder Online – Download PDF | GoZapTools</title>
+  <meta name="description" content="Build a professional CV or resume online for free. Choose from 3 clean templates, fill in your details, download as PDF instantly. No login, no watermark, works worldwide." />
+  <link rel="canonical" href="https://www.gozaptools.com/cv-builder.html" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2BWW2MFZCQ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2BWW2MFZCQ');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500&family=Lora:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#0a0a0f;--surface:#13131a;--surface2:#1c1c27;--border:#2a2a3a;--accent:#00e5a0;--text:#f0f0f8;--muted:#8888aa;--max:1280px}
+    body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+    body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,229,160,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,160,0.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0}
+
+    /* NAV */
+    nav{position:sticky;top:0;z-index:100;background:rgba(10,10,15,.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+    .nav-inner{max-width:var(--max);margin:0 auto;padding:0 1.5rem;height:60px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:7px}
+    .logo span{color:var(--accent)}
+    .logo-icon{width:28px;height:28px;background:var(--accent);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:13px}
+    .back-link{font-size:13px;color:var(--muted);text-decoration:none;transition:color .2s}
+    .back-link:hover{color:var(--accent)}
+
+    /* PAGE HEADER */
+    .page-header{position:relative;z-index:1;max-width:var(--max);margin:0 auto;padding:28px 1.5rem 20px}
+    .page-header h1{font-family:'Syne',sans-serif;font-size:clamp(1.4rem,3vw,2rem);font-weight:800;margin-bottom:5px}
+    .page-header h1 span{color:var(--accent)}
+    .page-header p{font-size:.875rem;color:var(--muted);line-height:1.6}
+
+    /* TEMPLATE PICKER */
+    .template-bar{position:relative;z-index:1;max-width:var(--max);margin:0 auto;padding:0 1.5rem 20px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+    .template-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-right:4px}
+    .tpl-btn{padding:8px 18px;border-radius:10px;border:1px solid var(--border);background:var(--surface);color:var(--muted);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:all .15s}
+    .tpl-btn.active{background:rgba(0,229,160,.1);border-color:rgba(0,229,160,.35);color:var(--accent)}
+    .tpl-btn:hover:not(.active){border-color:var(--muted);color:var(--text)}
+
+    /* MAIN LAYOUT */
+    .page-wrap{position:relative;z-index:1;max-width:var(--max);margin:0 auto;padding:0 1.5rem 60px;display:grid;grid-template-columns:340px 1fr;gap:20px;align-items:start}
+    @media(max-width:900px){.page-wrap{grid-template-columns:1fr}}
+
+    /* FORM */
+    .form-panel{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:22px;position:sticky;top:76px;max-height:calc(100vh - 100px);overflow-y:auto}
+    @media(max-width:900px){.form-panel{position:static;max-height:none}}
+    .form-panel::-webkit-scrollbar{width:4px}
+    .form-panel::-webkit-scrollbar-track{background:transparent}
+    .form-panel::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
+
+    .panel-title{font-family:'Syne',sans-serif;font-weight:700;font-size:.95rem;margin-bottom:18px;display:flex;align-items:center;gap:8px}
+    .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);flex-shrink:0}
+    .sec-label{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:10px}
+    .form-sec{margin-bottom:18px}
+    .fg{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+    .fg.c1{grid-template-columns:1fr}
+    .field{display:flex;flex-direction:column;gap:4px}
+    .field.full{grid-column:1/-1}
+    label{font-size:11px;color:var(--muted);font-weight:500}
+    input,textarea,select{background:var(--surface2);border:1px solid var(--border);border-radius:9px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:13px;padding:8px 11px;width:100%;transition:border-color .2s;outline:none;-webkit-appearance:none;resize:vertical}
+    input:focus,textarea:focus,select:focus{border-color:var(--accent)}
+    input::placeholder,textarea::placeholder{color:var(--muted);opacity:.5}
+    textarea{min-height:70px;line-height:1.5}
+    .divider{height:1px;background:var(--border);margin:14px 0}
+
+    /* Repeatable sections */
+    .repeat-item{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:10px;position:relative}
+    .repeat-item-title{font-size:12px;font-weight:600;color:var(--text);margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
+    .btn-remove{background:none;border:none;color:var(--muted);cursor:pointer;font-size:16px;line-height:1;padding:2px;transition:color .15s}
+    .btn-remove:hover{color:#ff6b6b}
+    .btn-add{width:100%;padding:9px;background:none;border:1px dashed var(--border);border-radius:9px;color:var(--muted);font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;cursor:pointer;transition:all .15s;margin-top:4px}
+    .btn-add:hover{border-color:var(--accent);color:var(--accent)}
+
+    .btn-dl{width:100%;margin-top:16px;padding:13px;background:var(--accent);color:#0a0a0f;border:none;border-radius:11px;font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;cursor:pointer;transition:opacity .2s}
+    .btn-dl:hover{opacity:.9}
+
+    /* PREVIEW */
+    .preview-panel{background:var(--surface);border:1px solid var(--border);border-radius:18px;overflow:hidden}
+    .preview-header{padding:11px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+    .preview-title{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:7px}
+    .live-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 1.5s infinite}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+    .preview-bg{padding:20px;background:#e8eaed}
+    @media(max-width:900px){.preview-bg{padding:12px}}
+
+    /* ========== CV TEMPLATES ========== */
+    #cv-doc{background:white;width:100%;font-family:'DM Sans',sans-serif;color:#1a1a2e;border-radius:6px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.12);min-height:400px}
+
+    /* TEMPLATE 1: Classic */
+    .tpl-classic #cv-header{background:#1a1a2e;color:white;padding:28px 32px;display:flex;justify-content:space-between;align-items:flex-start;gap:20px}
+    .tpl-classic #cv-name{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;letter-spacing:-.01em;margin-bottom:4px}
+    .tpl-classic #cv-title{font-size:13px;color:#00e5a0;font-weight:500;margin-bottom:10px}
+    .tpl-classic #cv-contact-header{font-size:11px;opacity:.65;line-height:1.9;text-align:right}
+    .tpl-classic .cv-body{display:grid;grid-template-columns:1fr 2fr;gap:0}
+    .tpl-classic .cv-sidebar{background:#f4f6f8;padding:22px 20px;border-right:1px solid #e5e7ec}
+    .tpl-classic .cv-main{padding:22px 24px}
+    .tpl-classic .cv-section-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#1a1a2e;border-bottom:2px solid #00e5a0;padding-bottom:5px;margin-bottom:12px}
+    .tpl-classic .cv-section{margin-bottom:20px}
+    .tpl-classic .cv-item-title{font-size:13px;font-weight:600;color:#1a1a2e}
+    .tpl-classic .cv-item-sub{font-size:11px;color:#666;margin-bottom:4px}
+    .tpl-classic .cv-item-desc{font-size:12px;color:#444;line-height:1.6}
+    .tpl-classic .cv-skill-tag{display:inline-block;background:#e8f5f1;color:#1a6b50;font-size:11px;padding:3px 10px;border-radius:20px;margin:2px}
+    .tpl-classic .cv-body-text{font-size:12px;color:#444;line-height:1.7}
+
+    /* TEMPLATE 2: Modern */
+    .tpl-modern #cv-header{background:linear-gradient(135deg,#667eea,#764ba2);color:white;padding:28px 32px}
+    .tpl-modern #cv-name{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;margin-bottom:4px}
+    .tpl-modern #cv-title{font-size:13px;opacity:.85;margin-bottom:12px}
+    .tpl-modern #cv-contact-header{font-size:11px;opacity:.8;display:flex;flex-wrap:wrap;gap:14px;line-height:1.5}
+    .tpl-modern .cv-body{padding:24px 32px}
+    .tpl-modern .cv-section{margin-bottom:22px}
+    .tpl-modern .cv-section-title{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:#667eea;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+    .tpl-modern .cv-section-title::after{content:'';flex:1;height:1px;background:#e5e7ec}
+    .tpl-modern .cv-item{display:flex;gap:12px;margin-bottom:12px}
+    .tpl-modern .cv-item-dot{width:8px;height:8px;border-radius:50%;background:#667eea;flex-shrink:0;margin-top:4px}
+    .tpl-modern .cv-item-title{font-size:13px;font-weight:600;color:#1a1a2e}
+    .tpl-modern .cv-item-sub{font-size:11px;color:#888;margin-bottom:4px}
+    .tpl-modern .cv-item-desc{font-size:12px;color:#555;line-height:1.6}
+    .tpl-modern .cv-skill-tag{display:inline-block;border:1px solid #667eea;color:#667eea;font-size:11px;padding:3px 10px;border-radius:5px;margin:2px}
+    .tpl-modern .cv-body-text{font-size:12px;color:#444;line-height:1.7}
+
+    /* TEMPLATE 3: Minimal */
+    .tpl-minimal #cv-header{padding:32px 36px 24px;border-bottom:3px solid #1a1a2e}
+    .tpl-minimal #cv-name{font-family:'Lora',serif;font-size:26px;font-weight:700;color:#1a1a2e;margin-bottom:3px}
+    .tpl-minimal #cv-title{font-size:13px;color:#666;font-style:italic;margin-bottom:10px}
+    .tpl-minimal #cv-contact-header{font-size:11px;color:#888;display:flex;flex-wrap:wrap;gap:16px}
+    .tpl-minimal .cv-body{padding:20px 36px 28px}
+    .tpl-minimal .cv-section{margin-bottom:20px}
+    .tpl-minimal .cv-section-title{font-family:'Lora',serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:#1a1a2e;margin-bottom:12px}
+    .tpl-minimal .cv-item-title{font-size:13px;font-weight:600;color:#1a1a2e;display:flex;justify-content:space-between}
+    .tpl-minimal .cv-item-sub{font-size:11px;color:#888;margin-bottom:4px}
+    .tpl-minimal .cv-item-desc{font-size:12px;color:#444;line-height:1.65}
+    .tpl-minimal .cv-skill-tag{display:inline-block;font-size:11px;color:#555;padding:0 10px 0 0;border-right:1px solid #ccc;margin:2px 0;line-height:1.4}
+    .tpl-minimal .cv-skill-tag:last-child{border-right:none}
+    .tpl-minimal .cv-body-text{font-size:12px;color:#444;line-height:1.75}
+
+    /* SEO section */
+    .seo-section{position:relative;z-index:1;max-width:var(--max);margin:0 auto;padding:0 1.5rem 60px}
+    .seo-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+    @media(max-width:700px){.seo-grid{grid-template-columns:1fr}}
+    .seo-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:22px}
+    .seo-card h2{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin-bottom:10px}
+    .seo-card p{font-size:.85rem;color:var(--muted);line-height:1.8;margin-bottom:8px}
+    .seo-card ul{list-style:none;display:flex;flex-direction:column;gap:6px;margin-top:4px}
+    .seo-card ul li{font-size:.83rem;color:var(--muted);padding-left:18px;position:relative;line-height:1.55}
+    .seo-card ul li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:11px}
+    .sec-hd{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+    .sec-hd h2{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:700;white-space:nowrap}
+    .sec-hd-line{flex:1;height:1px;background:var(--border)}
+    .faq-item{background:var(--surface);border:1px solid var(--border);border-radius:12px;margin-bottom:8px;overflow:hidden}
+    .faq-q{width:100%;background:none;border:none;color:var(--text);font-family:'DM Sans',sans-serif;font-size:.875rem;font-weight:500;padding:15px 18px;text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:14px;line-height:1.4}
+    .faq-q:hover{color:var(--accent)}
+    .faq-arr{color:var(--muted);font-size:18px;transition:transform .25s;flex-shrink:0}
+    .faq-item.open .faq-arr{transform:rotate(45deg);color:var(--accent)}
+    .faq-a{font-size:.85rem;color:var(--muted);line-height:1.8;max-height:0;overflow:hidden;transition:max-height .3s,padding .3s;padding:0 18px}
+    .faq-item.open .faq-a{max-height:200px;padding:0 18px 16px}
+
+    /* PRINT */
+    @media print{
+      *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+      body>*{display:none!important}
+      #cv-doc{display:block!important;position:fixed;top:0;left:0;width:100%;box-shadow:none!important;border-radius:0!important}
+      #cv-doc *{display:revert!important}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo"><div class="logo-icon">⚡</div>Go<span>Zap</span>Tools</a>
+    <a href="/" class="back-link">← All Tools</a>
+  </div>
+</nav>
+
+<div class="page-header">
+  <h1>Free <span>CV / Resume</span> Builder</h1>
+  <p>Build a professional CV in minutes. Pick a template, fill in your details, download as PDF — free, no login, no watermark.</p>
+</div>
+
+<div class="template-bar">
+  <span class="template-label">Template:</span>
+  <button class="tpl-btn active" onclick="setTemplate('classic',this)">Classic</button>
+  <button class="tpl-btn" onclick="setTemplate('modern',this)">Modern</button>
+  <button class="tpl-btn" onclick="setTemplate('minimal',this)">Minimal</button>
+</div>
+
+<div class="page-wrap">
+
+  <!-- FORM -->
+  <div class="form-panel">
+    <div class="panel-title"><div class="dot"></div>Your Details</div>
+
+    <div class="form-sec">
+      <span class="sec-label">Personal Info</span>
+      <div class="fg c1">
+        <div class="field"><label>Full Name</label><input type="text" id="f-name" placeholder="Jane Smith" oninput="render()" /></div>
+        <div class="field"><label>Job Title / Profession</label><input type="text" id="f-title" placeholder="Software Engineer" oninput="render()" /></div>
+        <div class="field"><label>Email</label><input type="email" id="f-email" placeholder="jane@email.com" oninput="render()" /></div>
+      </div>
+      <div class="fg" style="margin-top:9px">
+        <div class="field"><label>Phone</label><input type="text" id="f-phone" placeholder="+1 555 000 0000" oninput="render()" /></div>
+        <div class="field"><label>Location</label><input type="text" id="f-location" placeholder="London, UK" oninput="render()" /></div>
+        <div class="field"><label>LinkedIn (optional)</label><input type="text" id="f-linkedin" placeholder="linkedin.com/in/jane" oninput="render()" /></div>
+        <div class="field"><label>Website (optional)</label><input type="text" id="f-website" placeholder="janesmith.com" oninput="render()" /></div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="form-sec">
+      <span class="sec-label">Professional Summary</span>
+      <textarea id="f-summary" placeholder="Write 2–3 sentences about your experience, skills, and what you're looking for..." oninput="render()"></textarea>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="form-sec">
+      <span class="sec-label">Work Experience</span>
+      <div id="exp-list"></div>
+      <button class="btn-add" onclick="addExp()">+ Add Experience</button>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="form-sec">
+      <span class="sec-label">Education</span>
+      <div id="edu-list"></div>
+      <button class="btn-add" onclick="addEdu()">+ Add Education</button>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="form-sec">
+      <span class="sec-label">Skills</span>
+      <div class="field"><label>Skills (comma separated)</label><input type="text" id="f-skills" placeholder="JavaScript, Project Management, Photoshop" oninput="render()" /></div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="form-sec">
+      <span class="sec-label">Languages (optional)</span>
+      <div class="field"><label>Languages</label><input type="text" id="f-langs" placeholder="English (Native), French (Intermediate)" oninput="render()" /></div>
+    </div>
+
+    <button class="btn-dl" onclick="window.print()">⬇ Download CV as PDF</button>
+  </div>
+
+  <!-- PREVIEW -->
+  <div class="preview-panel">
+    <div class="preview-header">
+      <div class="preview-title"><div class="live-dot"></div>Live Preview</div>
+      <span style="font-size:11px;color:var(--muted)">Updates as you type</span>
+    </div>
+    <div class="preview-bg">
+      <div id="cv-doc" class="tpl-classic"></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- SEO -->
+<div class="seo-section">
+  <div class="sec-hd"><h2>About This Tool</h2><div class="sec-hd-line"></div></div>
+  <div class="seo-grid">
+    <div class="seo-card">
+      <h2>Free CV Builder — No Login, No Watermark</h2>
+      <p>Looking for a free CV builder that actually works? GoZapTools CV Builder lets you create a professional, downloadable CV in minutes — completely free, no account required, no watermark on your download.</p>
+      <p>Choose from 3 clean templates, fill in your details, and download a print-ready PDF straight from your browser. Works on desktop and mobile.</p>
+    </div>
+    <div class="seo-card">
+      <h2>3 Templates for Any Industry</h2>
+      <ul>
+        <li><strong>Classic</strong> — two-column layout with a dark header. Great for corporate, finance, and professional roles</li>
+        <li><strong>Modern</strong> — gradient header with purple accents. Ideal for tech, creative, and startup jobs</li>
+        <li><strong>Minimal</strong> — clean serif typography. Perfect for academic, research, and executive roles</li>
+      </ul>
+    </div>
+  </div>
+  <div class="sec-hd" style="margin-top:10px"><h2>FAQs</h2><div class="sec-hd-line"></div></div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="tFaq(this)">Is this CV builder completely free?<span class="faq-arr">+</span></button>
+    <div class="faq-a">Yes — 100% free, no signup, no login, no watermark on your downloaded CV.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="tFaq(this)">How do I download my CV as a PDF?<span class="faq-arr">+</span></button>
+    <div class="faq-a">Click "Download CV as PDF". Your browser's print dialog opens — choose "Save as PDF" as the destination. Works on Chrome, Firefox, Edge and Safari on both desktop and mobile.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="tFaq(this)">Will blank sections appear in my CV?<span class="faq-arr">+</span></button>
+    <div class="faq-a">No. Any section you leave empty is automatically hidden. Your downloaded CV only shows the information you actually entered.</div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="tFaq(this)">Can I use this outside of Pakistan?<span class="faq-arr">+</span></button>
+    <div class="faq-a">Absolutely. This tool works for anyone, anywhere. All three templates follow international CV/resume standards used in the US, UK, UAE, Europe, and beyond.</div>
+  </div>
+</div>
+
+<script>
+let currentTemplate = 'classic';
+let expItems = [];
+let eduItems = [];
+
+// ---- Template switcher ----
+function setTemplate(name, btn) {
+  currentTemplate = name;
+  document.querySelectorAll('.tpl-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  render();
+}
+
+// ---- Helpers ----
+function v(id) { return (document.getElementById(id)||{}).value || ''; }
+function esc(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>'); }
+
+// ---- Experience ----
+function addExp() {
+  const id = Date.now();
+  expItems.push({id, role:'', company:'', period:'', desc:''});
+  renderForm();
+  render();
+}
+function removeExp(id) {
+  expItems = expItems.filter(e => e.id !== id);
+  renderForm();
+  render();
+}
+
+// ---- Education ----
+function addEdu() {
+  const id = Date.now();
+  eduItems.push({id, degree:'', institution:'', period:'', grade:''});
+  renderForm();
+  render();
+}
+function removeEdu(id) {
+  eduItems = eduItems.filter(e => e.id !== id);
+  renderForm();
+  render();
+}
+
+function renderForm() {
+  // Experience
+  const expEl = document.getElementById('exp-list');
+  expEl.innerHTML = expItems.map((e,i) => `
+    <div class="repeat-item">
+      <div class="repeat-item-title">
+        <span>Experience ${i+1}</span>
+        <button class="btn-remove" onclick="removeExp(${e.id})" title="Remove">×</button>
+      </div>
+      <div class="fg c1" style="gap:8px">
+        <div class="fg">
+          <div class="field"><label>Job Title</label><input type="text" value="${e.role}" placeholder="Software Engineer" oninput="expItems[${i}].role=this.value;render()" /></div>
+          <div class="field"><label>Company</label><input type="text" value="${e.company}" placeholder="Google" oninput="expItems[${i}].company=this.value;render()" /></div>
+        </div>
+        <div class="field"><label>Period</label><input type="text" value="${e.period}" placeholder="Jan 2022 – Present" oninput="expItems[${i}].period=this.value;render()" /></div>
+        <div class="field"><label>Description</label><textarea placeholder="Key responsibilities and achievements..." oninput="expItems[${i}].desc=this.value;render()">${e.desc}</textarea></div>
+      </div>
+    </div>
+  `).join('');
+
+  // Education
+  const eduEl = document.getElementById('edu-list');
+  eduEl.innerHTML = eduItems.map((e,i) => `
+    <div class="repeat-item">
+      <div class="repeat-item-title">
+        <span>Education ${i+1}</span>
+        <button class="btn-remove" onclick="removeEdu(${e.id})" title="Remove">×</button>
+      </div>
+      <div class="fg" style="gap:8px">
+        <div class="field full"><label>Degree / Qualification</label><input type="text" value="${e.degree}" placeholder="BSc Computer Science" oninput="eduItems[${i}].degree=this.value;render()" /></div>
+        <div class="field"><label>Institution</label><input type="text" value="${e.institution}" placeholder="University of London" oninput="eduItems[${i}].institution=this.value;render()" /></div>
+        <div class="field"><label>Years</label><input type="text" value="${e.period}" placeholder="2018 – 2022" oninput="eduItems[${i}].period=this.value;render()" /></div>
+        <div class="field full"><label>Grade / Notes (optional)</label><input type="text" value="${e.grade}" placeholder="First Class Honours" oninput="eduItems[${i}].grade=this.value;render()" /></div>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ---- MAIN RENDER ----
+function render() {
+  const name = v('f-name');
+  const title = v('f-title');
+  const email = v('f-email');
+  const phone = v('f-phone');
+  const location = v('f-location');
+  const linkedin = v('f-linkedin');
+  const website = v('f-website');
+  const summary = v('f-summary');
+  const skills = v('f-skills').split(',').map(s=>s.trim()).filter(Boolean);
+  const langs = v('f-langs').split(',').map(s=>s.trim()).filter(Boolean);
+
+  const t = currentTemplate;
+  const doc = document.getElementById('cv-doc');
+  doc.className = 'tpl-' + t;
+
+  // Contact line for header
+  const contactParts = [email, phone, location, linkedin, website].filter(Boolean);
+
+  // Build contact HTML
+  let contactHtml = '';
+  if (t === 'classic') {
+    contactHtml = contactParts.join('<br>');
+  } else {
+    contactHtml = contactParts.map(c => `<span>${esc(c)}</span>`).join('');
+  }
+
+  // Summary
+  const summaryHtml = summary ? `
+    <div class="cv-section">
+      <div class="cv-section-title">Summary</div>
+      <div class="cv-body-text">${esc(summary)}</div>
+    </div>` : '';
+
+  // Experience
+  const expHtml = expItems.filter(e => e.role||e.company).length ? `
+    <div class="cv-section">
+      <div class="cv-section-title">Work Experience</div>
+      ${expItems.filter(e=>e.role||e.company).map(e => t==='modern' ? `
+        <div class="cv-item">
+          <div class="cv-item-dot"></div>
+          <div>
+            <div class="cv-item-title">${esc(e.role||'Role')}</div>
+            <div class="cv-item-sub">${[e.company,e.period].filter(Boolean).join(' · ')}</div>
+            ${e.desc?`<div class="cv-item-desc">${esc(e.desc)}</div>`:''}
+          </div>
+        </div>` : `
+        <div style="margin-bottom:12px">
+          <div class="cv-item-title">${esc(e.role||'Role')}${t==='minimal'?`<span style="font-size:11px;color:#888;font-weight:400">${esc(e.period)}</span>`:''}</div>
+          <div class="cv-item-sub">${e.company?esc(e.company):''}${t!=='minimal'&&e.period?' · '+esc(e.period):''}</div>
+          ${e.desc?`<div class="cv-item-desc">${esc(e.desc)}</div>`:''}
+        </div>`
+      ).join('')}
+    </div>` : '';
+
+  // Education
+  const eduHtml = eduItems.filter(e=>e.degree||e.institution).length ? `
+    <div class="cv-section">
+      <div class="cv-section-title">Education</div>
+      ${eduItems.filter(e=>e.degree||e.institution).map(e => t==='modern' ? `
+        <div class="cv-item">
+          <div class="cv-item-dot"></div>
+          <div>
+            <div class="cv-item-title">${esc(e.degree||'Degree')}</div>
+            <div class="cv-item-sub">${[e.institution,e.period].filter(Boolean).join(' · ')}</div>
+            ${e.grade?`<div class="cv-item-desc">${esc(e.grade)}</div>`:''}
+          </div>
+        </div>` : `
+        <div style="margin-bottom:10px">
+          <div class="cv-item-title">${esc(e.degree||'Degree')}${t==='minimal'&&e.period?`<span style="font-size:11px;color:#888;font-weight:400">${esc(e.period)}</span>`:''}</div>
+          <div class="cv-item-sub">${e.institution?esc(e.institution):''}${t!=='minimal'&&e.period?' · '+esc(e.period):''}</div>
+          ${e.grade?`<div class="cv-item-desc">${esc(e.grade)}</div>`:''}
+        </div>`
+      ).join('')}
+    </div>` : '';
+
+  // Skills
+  const skillsHtml = skills.length ? `
+    <div class="cv-section">
+      <div class="cv-section-title">Skills</div>
+      <div>${skills.map(s=>`<span class="cv-skill-tag">${esc(s)}</span>`).join(' ')}</div>
+    </div>` : '';
+
+  // Languages
+  const langsHtml = langs.length ? `
+    <div class="cv-section">
+      <div class="cv-section-title">Languages</div>
+      <div>${langs.map(s=>`<span class="cv-skill-tag">${esc(s)}</span>`).join(' ')}</div>
+    </div>` : '';
+
+  // Render by template
+  if (t === 'classic') {
+    doc.innerHTML = `
+      <div id="cv-header">
+        <div>
+          <div id="cv-name">${esc(name||'Your Name')}</div>
+          ${title?`<div id="cv-title">${esc(title)}</div>`:''}
+        </div>
+        ${contactParts.length?`<div id="cv-contact-header">${contactHtml}</div>`:''}
+      </div>
+      <div class="cv-body">
+        <div class="cv-sidebar">
+          ${skillsHtml}
+          ${langsHtml}
+          ${summary?`<div class="cv-section"><div class="cv-section-title">About</div><div class="cv-body-text">${esc(summary)}</div></div>`:''}
+        </div>
+        <div class="cv-main">
+          ${expHtml}
+          ${eduHtml}
+        </div>
+      </div>`;
+  } else if (t === 'modern') {
+    doc.innerHTML = `
+      <div id="cv-header">
+        <div id="cv-name">${esc(name||'Your Name')}</div>
+        ${title?`<div id="cv-title">${esc(title)}</div>`:''}
+        ${contactParts.length?`<div id="cv-contact-header">${contactHtml}</div>`:''}
+      </div>
+      <div class="cv-body">
+        ${summaryHtml}
+        ${expHtml}
+        ${eduHtml}
+        ${skillsHtml}
+        ${langsHtml}
+      </div>`;
+  } else {
+    doc.innerHTML = `
+      <div id="cv-header">
+        <div id="cv-name">${esc(name||'Your Name')}</div>
+        ${title?`<div id="cv-title">${esc(title)}</div>`:''}
+        ${contactParts.length?`<div id="cv-contact-header">${contactHtml}</div>`:''}
+      </div>
+      <div class="cv-body">
+        ${summaryHtml}
+        ${expHtml}
+        ${eduHtml}
+        ${skillsHtml}
+        ${langsHtml}
+      </div>`;
+  }
+}
+
+function tFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// Init
+renderForm();
+render();
+</script>
+</body>
+</html>
