@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Loan EMI Calculator – Monthly Payment & Interest | GoZapTools</title>
+  <meta name="description" content="Calculate your monthly loan EMI payment instantly. Supports any bank, any interest rate, any term. Full amortization schedule included. Free, no login required." />
+  <link rel="canonical" href="https://www.gozaptools.com/loan-calculator/" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2BWW2MFZCQ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2BWW2MFZCQ');</script>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#0a0a0f;--surface:#13131a;--surface2:#1c1c27;--border:#2a2a3a;--accent:#00e5a0;--text:#f0f0f8;--muted:#8888aa;--warn:#ff9f43;--max:1000px}
+    body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+    body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,229,160,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,160,.025) 1px,transparent 1px);background-size:64px 64px;pointer-events:none;z-index:0}
+    nav{position:sticky;top:0;z-index:100;background:rgba(10,10,15,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+    .nav-inner{max-width:var(--max);margin:0 auto;padding:0 1.25rem;height:56px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.15rem;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:7px}
+    .logo span{color:var(--accent)}
+    .logo-icon{width:26px;height:26px;background:var(--accent);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px}
+    .back-link{font-size:13px;color:var(--muted);text-decoration:none;transition:color .2s}
+    .back-link:hover{color:var(--accent)}
+    .page-header{position:relative;z-index:1;max-width:var(--max);margin:0 auto;padding:24px 1.25rem 20px}
+    .page-header h1{font-family:'Syne',sans-serif;font-size:clamp(1.3rem,3vw,1.9rem);font-weight:800;margin-bottom:5px}
+    .page-header h1 span{color:var(--accent)}
+    .page-header p{font-size:.85rem;color:var(--muted);line-height:1.6}
+    .wrap{position:relative;z-index:1;max-width:var(--max);margin:0 auto;padding:0 1.25rem 60px;display:grid;grid-template-columns:300px 1fr;gap:16px;align-items:start}
+    @media(max-width:760px){.wrap{grid-template-columns:1fr}}
+    .panel{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:20px}
+    .form-panel{position:sticky;top:68px}
+    @media(max-width:760px){.form-panel{position:static}}
+    .panel-title{font-family:'Syne',sans-serif;font-weight:700;font-size:.9rem;margin-bottom:16px;display:flex;align-items:center;gap:7px}
+    .dot{width:6px;height:6px;border-radius:50%;background:var(--warn)}
+    .field{display:flex;flex-direction:column;gap:5px;margin-bottom:12px}
+    label{font-size:11px;color:var(--muted);font-weight:500}
+    input,select{background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;padding:10px 12px;width:100%;outline:none;-webkit-appearance:none;transition:border-color .2s}
+    input:focus,select:focus{border-color:var(--accent)}
+    .input-wrap{position:relative}
+    .input-prefix{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:13px;color:var(--muted);pointer-events:none}
+    .input-wrap input{padding-left:36px}
+    .input-suffix{position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:12px;color:var(--muted);pointer-events:none}
+    .slider{width:100%;accent-color:var(--accent);margin-top:4px}
+    .slider-row{display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-top:2px}
+    .btn-calc{width:100%;margin-top:8px;padding:13px;background:var(--warn);color:#0a0a0f;border:none;border-radius:10px;font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;cursor:pointer;transition:opacity .2s}
+    .btn-calc:hover{opacity:.9}
+
+    /* Results */
+    .results{display:flex;flex-direction:column;gap:14px}
+    .emi-card{background:linear-gradient(135deg,#1a1a2e,#16213e);border:1px solid rgba(255,159,67,.2);border-radius:16px;padding:24px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+    @media(max-width:500px){.emi-card{grid-template-columns:1fr 1fr}}
+    .emi-main{grid-column:1/-1;text-align:center;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.07)}
+    .emi-lbl{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px}
+    .emi-val{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:var(--warn)}
+    .emi-stat-lbl{font-size:10px;color:var(--muted);margin-bottom:4px}
+    .emi-stat-val{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--text)}
+
+    /* Breakdown */
+    .breakdown{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+    .bk-hd{padding:14px 18px;border-bottom:1px solid var(--border);font-family:'Syne',sans-serif;font-weight:600;font-size:.9rem}
+    .bk-row{display:flex;justify-content:space-between;align-items:center;padding:11px 18px;border-bottom:1px solid rgba(42,42,58,.5);font-size:13px}
+    .bk-row:last-child{border-bottom:none}
+    .bk-row.total{background:var(--surface2);font-weight:600}
+    .bk-row .val{font-weight:500;color:var(--warn)}
+
+    /* Bar chart */
+    .bar-chart{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px}
+    .bar-chart h3{font-family:'Syne',sans-serif;font-size:.9rem;font-weight:600;margin-bottom:14px}
+    .bar-wrap{display:flex;height:140px;gap:1px;align-items:flex-end;overflow:hidden;border-radius:6px}
+    .bar-seg{transition:height .3s}
+    .bar-legend{display:flex;gap:16px;margin-top:10px}
+    .legend-item{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--muted)}
+    .legend-dot{width:10px;height:10px;border-radius:3px}
+
+    /* Schedule table */
+    .schedule{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+    .sched-hd{padding:14px 18px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+    .sched-hd h3{font-family:'Syne',sans-serif;font-weight:600;font-size:.9rem}
+    .sched-table{width:100%;border-collapse:collapse;font-size:12px}
+    .sched-table th{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;padding:9px 14px;text-align:right;background:var(--surface2)}
+    .sched-table th:first-child{text-align:left}
+    .sched-table td{padding:9px 14px;border-top:1px solid var(--border);text-align:right;color:var(--muted)}
+    .sched-table td:first-child{text-align:left;color:var(--text)}
+    .sched-table tr:hover td{background:var(--surface2)}
+    .sched-wrap{max-height:280px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border) transparent}
+
+    .empty{text-align:center;padding:48px 20px;color:var(--muted);font-size:.875rem}
+    .empty-icon{font-size:40px;margin-bottom:12px}
+
+    .sec-hd{display:flex;align-items:center;gap:12px;margin:0 0 14px}
+    .sec-hd h2{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;white-space:nowrap}
+    .sec-line{flex:1;height:1px;background:var(--border)}
+    .faq-wrap{position:relative;z-index:1;max-width:var(--max);margin:0 auto;padding:16px 1.25rem 60px}
+    .faq-item{background:var(--surface);border:1px solid var(--border);border-radius:12px;margin-bottom:7px;overflow:hidden}
+    .faq-q{width:100%;background:none;border:none;color:var(--text);font-family:'DM Sans',sans-serif;font-size:.875rem;font-weight:500;padding:14px 17px;text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px}
+    .faq-q:hover{color:var(--accent)}
+    .faq-arr{color:var(--muted);font-size:17px;transition:transform .2s;flex-shrink:0}
+    .faq-item.open .faq-arr{transform:rotate(45deg);color:var(--accent)}
+    .faq-a{font-size:.83rem;color:var(--muted);line-height:1.8;max-height:0;overflow:hidden;transition:max-height .28s,padding .28s;padding:0 17px}
+    .faq-item.open .faq-a{max-height:200px;padding:0 17px 14px}
+  </style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo"><div class="logo-icon">⚡</div>Go<span>Zap</span>Tools</a>
+    <a href="/" class="back-link">← All Tools</a>
+  </div>
+</nav>
+
+<div class="page-header">
+  <h1>Loan <span>EMI Calculator</span></h1>
+  <p>Calculate your monthly loan payment with full breakdown. Works for any bank, any country, any currency.</p>
+</div>
+
+<div class="wrap">
+  <!-- FORM -->
+  <div class="panel form-panel">
+    <div class="panel-title"><div class="dot"></div>Loan Details</div>
+
+    <div class="field">
+      <label>Currency</label>
+      <select id="currency" onchange="calculate()">
+        <option value="PKR">PKR – Pakistani Rupee</option>
+        <option value="USD">USD – US Dollar</option>
+        <option value="GBP">GBP – British Pound</option>
+        <option value="EUR">EUR – Euro</option>
+        <option value="AED">AED – UAE Dirham</option>
+        <option value="SAR">SAR – Saudi Riyal</option>
+        <option value="INR">INR – Indian Rupee</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Loan Amount</label>
+      <div class="input-wrap">
+        <span class="input-prefix" id="prefix">PKR</span>
+        <input type="number" id="principal" value="500000" min="0" oninput="calculate()" />
+      </div>
+      <input type="range" class="slider" id="principal-slider" min="10000" max="10000000" step="10000" value="500000" oninput="document.getElementById('principal').value=this.value;calculate()" />
+      <div class="slider-row"><span>10K</span><span>10M</span></div>
+    </div>
+
+    <div class="field">
+      <label>Annual Interest Rate (%)</label>
+      <div class="input-wrap">
+        <input type="number" id="rate" value="15" min="0" max="100" step="0.1" oninput="calculate()" />
+        <span class="input-suffix">% p.a.</span>
+      </div>
+      <input type="range" class="slider" id="rate-slider" min="1" max="36" step="0.5" value="15" oninput="document.getElementById('rate').value=this.value;calculate()" />
+      <div class="slider-row"><span>1%</span><span>36%</span></div>
+    </div>
+
+    <div class="field">
+      <label>Loan Term (Years)</label>
+      <div class="input-wrap">
+        <input type="number" id="years" value="3" min="1" max="30" oninput="calculate()" />
+        <span class="input-suffix">years</span>
+      </div>
+      <input type="range" class="slider" id="years-slider" min="1" max="30" step="1" value="3" oninput="document.getElementById('years').value=this.value;calculate()" />
+      <div class="slider-row"><span>1 yr</span><span>30 yrs</span></div>
+    </div>
+
+    <button class="btn-calc" onclick="calculate()">⚡ Calculate EMI</button>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="results" id="results">
+    <div class="empty">
+      <div class="empty-icon">🏦</div>
+      <div>Enter your loan details and click Calculate</div>
+    </div>
+  </div>
+</div>
+
+<div class="faq-wrap">
+  <div class="sec-hd"><h2>Frequently Asked Questions</h2><div class="sec-line"></div></div>
+  <div class="faq-item"><button class="faq-q" onclick="fq(this)">What is EMI?<span class="faq-arr">+</span></button><div class="faq-a">EMI stands for Equated Monthly Instalment. It is the fixed amount you pay to the bank every month to repay your loan. Each EMI includes both a principal component and an interest component.</div></div>
+  <div class="faq-item"><button class="faq-q" onclick="fq(this)">How is EMI calculated?<span class="faq-arr">+</span></button><div class="faq-a">EMI = [P × R × (1+R)^N] / [(1+R)^N – 1]. Where P = principal loan amount, R = monthly interest rate (annual rate ÷ 12 ÷ 100), N = total number of monthly instalments.</div></div>
+  <div class="faq-item"><button class="faq-q" onclick="fq(this)">What is the current loan interest rate in Pakistan?<span class="faq-arr">+</span></button><div class="faq-a">Pakistani bank personal loan rates typically range from 18–28% per annum depending on the bank and your credit profile. Car loans are generally 14–22%. Mortgage/housing loans can be 12–20%.</div></div>
+  <div class="faq-item"><button class="faq-q" onclick="fq(this)">Does a longer term mean lower EMI?<span class="faq-arr">+</span></button><div class="faq-a">Yes — a longer loan term reduces your monthly EMI but increases the total interest you pay over time. A shorter term means higher monthly payments but you pay less interest overall.</div></div>
+</div>
+
+<script>
+function fmt(n, sym){
+  return sym + ' ' + Math.round(n).toLocaleString();
+}
+
+const SYMS = {PKR:'PKR',USD:'$',GBP:'£',EUR:'€',AED:'AED',SAR:'SAR',INR:'₹'};
+
+function calculate(){
+  const cur = document.getElementById('currency').value;
+  const sym = SYMS[cur] || cur;
+  document.getElementById('prefix').textContent = sym;
+
+  // Sync sliders
+  ['principal','rate','years'].forEach(id=>{
+    const input = document.getElementById(id);
+    const slider = document.getElementById(id+'-slider');
+    if(slider) slider.value = input.value;
+  });
+
+  const P = parseFloat(document.getElementById('principal').value)||0;
+  const annualRate = parseFloat(document.getElementById('rate').value)||0;
+  const years = parseFloat(document.getElementById('years').value)||0;
+
+  if(!P || !annualRate || !years) return;
+
+  const R = annualRate / 12 / 100;
+  const N = years * 12;
+  const EMI = P * R * Math.pow(1+R,N) / (Math.pow(1+R,N)-1);
+  const totalPayment = EMI * N;
+  const totalInterest = totalPayment - P;
+  const principalPct = Math.round(P/totalPayment*100);
+  const interestPct = 100 - principalPct;
+
+  // Build amortization schedule (first 24 months shown)
+  let schedule = [];
+  let balance = P;
+  for(let i=1;i<=N;i++){
+    const intPart = balance * R;
+    const prinPart = EMI - intPart;
+    balance -= prinPart;
+    schedule.push({month:i, emi:EMI, principal:prinPart, interest:intPart, balance:Math.max(0,balance)});
+  }
+
+  document.getElementById('results').innerHTML = `
+    <div class="emi-card">
+      <div class="emi-main">
+        <div class="emi-lbl">Monthly EMI Payment</div>
+        <div class="emi-val">${fmt(EMI,sym)}</div>
+      </div>
+      <div>
+        <div class="emi-stat-lbl">Total Payment</div>
+        <div class="emi-stat-val">${fmt(totalPayment,sym)}</div>
+      </div>
+      <div>
+        <div class="emi-stat-lbl">Total Interest</div>
+        <div class="emi-stat-val" style="color:var(--warn)">${fmt(totalInterest,sym)}</div>
+      </div>
+      <div>
+        <div class="emi-stat-lbl">Loan Period</div>
+        <div class="emi-stat-val">${N} months</div>
+      </div>
+    </div>
+
+    <div class="breakdown">
+      <div class="bk-hd">Payment Breakdown</div>
+      <div class="bk-row"><span>Principal Amount</span><span class="val">${fmt(P,sym)}</span></div>
+      <div class="bk-row"><span>Total Interest Payable</span><span class="val">${fmt(totalInterest,sym)}</span></div>
+      <div class="bk-row"><span>Annual Interest Rate</span><span class="val">${annualRate}%</span></div>
+      <div class="bk-row"><span>Loan Term</span><span class="val">${years} years (${N} months)</span></div>
+      <div class="bk-row total"><span>Total Amount Payable</span><span class="val">${fmt(totalPayment,sym)}</span></div>
+    </div>
+
+    <div class="bar-chart">
+      <h3>Principal vs Interest Split</h3>
+      <div class="bar-wrap">
+        <div class="bar-seg" style="width:${principalPct}%;background:#00e5a0;height:100%"></div>
+        <div class="bar-seg" style="width:${interestPct}%;background:#ff9f43;height:100%"></div>
+      </div>
+      <div class="bar-legend">
+        <div class="legend-item"><div class="legend-dot" style="background:#00e5a0"></div>Principal ${principalPct}%</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#ff9f43"></div>Interest ${interestPct}%</div>
+      </div>
+    </div>
+
+    <div class="schedule">
+      <div class="sched-hd">
+        <h3>Amortization Schedule</h3>
+        <span style="font-size:11px;color:var(--muted)">${N} months total</span>
+      </div>
+      <div class="sched-wrap">
+        <table class="sched-table">
+          <thead><tr><th>Month</th><th>EMI</th><th>Principal</th><th>Interest</th><th>Balance</th></tr></thead>
+          <tbody>${schedule.map(r=>`
+            <tr>
+              <td>${r.month}</td>
+              <td>${fmt(r.emi,sym)}</td>
+              <td>${fmt(r.principal,sym)}</td>
+              <td>${fmt(r.interest,sym)}</td>
+              <td>${fmt(r.balance,sym)}</td>
+            </tr>`).join('')}
+          </tbody>
+        </table>
+      </div>
+    </div>`;
+}
+
+function fq(btn){
+  const item=btn.closest('.faq-item');
+  const open=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!open)item.classList.add('open');
+}
+
+calculate();
+</script>
+</body>
+</html>
