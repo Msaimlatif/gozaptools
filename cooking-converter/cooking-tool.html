@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Cooking Unit Converter – Cups, Grams, Tola, Pao & More | GoZapTools</title>
+  <meta name="description" content="Convert cooking units instantly. Cups to grams, tablespoons to ml, tola to grams, pao to kg and more. Free cooking measurement converter worldwide." />
+  <link rel="canonical" href="https://www.gozaptools.com/cooking-converter/" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2BWW2MFZCQ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2BWW2MFZCQ');</script>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#0a0a0f;--surface:#13131a;--surface2:#1c1c27;--border:#2a2a3a;--accent:#00e5a0;--text:#f0f0f8;--muted:#8888aa;--max:900px}
+    body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+    body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,229,160,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,160,.025) 1px,transparent 1px);background-size:64px 64px;pointer-events:none;z-index:0}
+    nav{position:sticky;top:0;z-index:100;background:rgba(10,10,15,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+    .nav-inner{max-width:var(--max);margin:0 auto;padding:0 1.25rem;height:56px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.15rem;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:7px}
+    .logo span{color:var(--accent)}
+    .logo-icon{width:26px;height:26px;background:var(--accent);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px}
+    .back-link{font-size:13px;color:var(--muted);text-decoration:none;transition:color .2s}
+    .back-link:hover{color:var(--accent)}
+    .page-header{position:relative;z-index:1;max-width:var(--max);margin:0 auto;padding:24px 1.25rem 20px;text-align:center}
+    .page-header h1{font-family:'Syne',sans-serif;font-size:clamp(1.4rem,3vw,2rem);font-weight:800;margin-bottom:6px}
+    .page-header h1 span{color:var(--accent)}
+    .page-header p{font-size:.875rem;color:var(--muted);line-height:1.6;max-width:500px;margin:0 auto}
+    .main{position:relative;z-index:1;max-width:var(--max);margin:0 auto;padding:0 1.25rem 60px}
+
+    /* Category tabs */
+    .tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+    .tab{padding:7px 16px;border-radius:9px;border:1px solid var(--border);background:var(--surface);color:var(--muted);font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;cursor:pointer;transition:all .15s}
+    .tab.active{background:rgba(0,229,160,.1);border-color:rgba(0,229,160,.35);color:var(--accent)}
+
+    /* Converter card */
+    .conv-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:24px;margin-bottom:16px}
+    .conv-title{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;margin-bottom:20px;color:var(--text)}
+    .conv-row{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:end;margin-bottom:14px}
+    @media(max-width:500px){.conv-row{grid-template-columns:1fr;gap:8px}}
+    .conv-group{display:flex;flex-direction:column;gap:5px}
+    .conv-label{font-size:11px;color:var(--muted);font-weight:500}
+    .conv-input-wrap{position:relative}
+    .conv-input{background:var(--surface2);border:1px solid var(--border);border-radius:10px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:1.1rem;font-weight:500;padding:12px 14px;width:100%;outline:none;-webkit-appearance:none;transition:border-color .2s}
+    .conv-input:focus{border-color:var(--accent)}
+    .conv-unit{background:var(--surface2);border:1px solid var(--border);border-radius:10px;color:var(--muted);font-family:'DM Sans',sans-serif;font-size:12px;padding:12px 14px;width:100%;outline:none;-webkit-appearance:none;margin-top:6px}
+    .conv-unit:focus{border-color:var(--accent)}
+    .conv-arrow{font-size:20px;color:var(--accent);text-align:center;padding-bottom:12px;cursor:pointer;user-select:none}
+    @media(max-width:500px){.conv-arrow{transform:rotate(90deg);text-align:left}}
+    .result-box{background:rgba(0,229,160,.06);border:1px solid rgba(0,229,160,.15);border-radius:12px;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+    .result-val{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;color:var(--accent)}
+    .result-unit{font-size:.85rem;color:var(--muted)}
+
+    /* Quick reference table */
+    .ref-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:16px}
+    .ref-card{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:14px}
+    .ref-card h4{font-size:.8rem;font-weight:600;color:var(--text);margin-bottom:8px}
+    .ref-row{display:flex;justify-content:space-between;font-size:.78rem;color:var(--muted);padding:3px 0;border-bottom:1px solid rgba(42,42,58,.5)}
+    .ref-row:last-child{border-bottom:none}
+    .ref-row span:last-child{color:var(--accent);font-weight:500}
+
+    .sec-hd{display:flex;align-items:center;gap:12px;margin:24px 0 16px}
+    .sec-hd h2{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;white-space:nowrap}
+    .sec-line{flex:1;height:1px;background:var(--border)}
+    .faq-item{background:var(--surface);border:1px solid var(--border);border-radius:12px;margin-bottom:7px;overflow:hidden}
+    .faq-q{width:100%;background:none;border:none;color:var(--text);font-family:'DM Sans',sans-serif;font-size:.875rem;font-weight:500;padding:14px 17px;text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px}
+    .faq-q:hover{color:var(--accent)}
+    .faq-arr{color:var(--muted);font-size:17px;transition:transform .2s;flex-shrink:0}
+    .faq-item.open .faq-arr{transform:rotate(45deg);color:var(--accent)}
+    .faq-a{font-size:.83rem;color:var(--muted);line-height:1.8;max-height:0;overflow:hidden;transition:max-height .28s,padding .28s;padding:0 17px}
+    .faq-item.open .faq-a{max-height:180px;padding:0 17px 14px}
+  </style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo"><div class="logo-icon">⚡</div>Go<span>Zap</span>Tools</a>
+    <a href="/" class="back-link">← All Tools</a>
+  </div>
+</nav>
+
+<div class="page-header">
+  <h1>Cooking <span>Unit Converter</span></h1>
+  <p>Convert cups, grams, tablespoons, ml, tola, pao, seer and more. Instant results for any recipe anywhere in the world.</p>
+</div>
+
+<div class="main">
+  <div class="tabs">
+    <button class="tab active" onclick="setTab('weight',this)">⚖️ Weight</button>
+    <button class="tab" onclick="setTab('volume',this)">💧 Volume</button>
+    <button class="tab" onclick="setTab('desi',this)">🫙 Desi Units</button>
+    <button class="tab" onclick="setTab('temp',this)">🌡️ Temperature</button>
+  </div>
+
+  <div class="conv-card">
+    <div class="conv-title" id="conv-title">Weight Converter</div>
+    <div class="conv-row">
+      <div class="conv-group">
+        <span class="conv-label">Amount</span>
+        <input class="conv-input" type="number" id="from-val" value="1" oninput="convert()" />
+        <select class="conv-unit" id="from-unit" onchange="convert()"></select>
+      </div>
+      <div class="conv-arrow" onclick="swapUnits()">⇄</div>
+      <div class="conv-group">
+        <span class="conv-label">Result</span>
+        <input class="conv-input" type="number" id="to-val" readonly style="opacity:.7" />
+        <select class="conv-unit" id="to-unit" onchange="convert()"></select>
+      </div>
+    </div>
+    <div class="result-box">
+      <div>
+        <div class="result-val" id="result-val">—</div>
+        <div class="result-unit" id="result-unit">Select units above</div>
+      </div>
+      <div style="font-size:28px">🍳</div>
+    </div>
+  </div>
+
+  <div id="ref-section">
+    <div class="sec-hd"><h2>Quick Reference</h2><div class="sec-line"></div></div>
+    <div class="ref-grid" id="ref-grid"></div>
+  </div>
+
+  <div class="sec-hd"><h2>FAQs</h2><div class="sec-line"></div></div>
+  <div class="faq-item"><button class="faq-q" onclick="fq(this)">How many grams is 1 tola?<span class="faq-arr">+</span></button><div class="faq-a">1 tola = 11.664 grams. This is a traditional South Asian unit commonly used in Pakistan and India for measuring spices and gold.</div></div>
+  <div class="faq-item"><button class="faq-q" onclick="fq(this)">How many grams is 1 pao?<span class="faq-arr">+</span></button><div class="faq-a">1 pao = 233.28 grams (approximately 250g). It equals 4 tolas and is used widely in Pakistani and Indian cooking recipes.</div></div>
+  <div class="faq-item"><button class="faq-q" onclick="fq(this)">How many cups in 1 kg of flour?<span class="faq-arr">+</span></button><div class="faq-a">Approximately 8 cups of all-purpose flour equals 1 kg (1000g). This can vary slightly based on how tightly the flour is packed.</div></div>
+  <div class="faq-item"><button class="faq-q" onclick="fq(this)">How do I convert tablespoons to grams?<span class="faq-arr">+</span></button><div class="faq-a">1 tablespoon of water or most liquids = 15ml ≈ 15g. For denser ingredients like butter it's about 14g, for sugar about 12g. Use the volume tab and select tablespoon to ml.</div></div>
+</div>
+
+<script>
+const TABS = {
+  weight: {
+    title: 'Weight Converter',
+    units: {
+      'gram (g)': 1,
+      'kilogram (kg)': 1000,
+      'milligram (mg)': 0.001,
+      'ounce (oz)': 28.3495,
+      'pound (lb)': 453.592,
+      'tola': 11.6638,
+      'pao': 233.276,
+      'seer': 933.105,
+      'maund': 37324.2,
+    },
+    refs: [
+      {title:'Tola & Pao', rows:[['1 tola','11.66 g'],['1 pao','233 g'],['1 seer','933 g'],['1 maund','37.3 kg']]},
+      {title:'Imperial', rows:[['1 oz','28.35 g'],['1 lb','453.6 g'],['1 lb','16 oz'],['1 kg','2.205 lb']]},
+      {title:'Common Recipes', rows:[['1 cup flour','120 g'],['1 cup sugar','200 g'],['1 cup butter','227 g'],['1 cup rice','185 g']]},
+    ]
+  },
+  volume: {
+    title: 'Volume Converter',
+    units: {
+      'milliliter (ml)': 1,
+      'liter (L)': 1000,
+      'teaspoon (tsp)': 4.92892,
+      'tablespoon (tbsp)': 14.7868,
+      'cup': 236.588,
+      'fluid ounce (fl oz)': 29.5735,
+      'pint': 473.176,
+      'quart': 946.353,
+    },
+    refs: [
+      {title:'Spoon Sizes', rows:[['1 tsp','5 ml'],['1 tbsp','15 ml'],['3 tsp','1 tbsp'],['1 fl oz','30 ml']]},
+      {title:'Cups & Liters', rows:[['1 cup','237 ml'],['4 cups','1 liter'],['1 pint','2 cups'],['1 quart','4 cups']]},
+    ]
+  },
+  desi: {
+    title: 'Desi / South Asian Units',
+    units: {
+      'gram (g)': 1,
+      'kilogram (kg)': 1000,
+      'tola': 11.6638,
+      'pao': 233.276,
+      'adha pao (½ pao)': 116.638,
+      'seer': 933.105,
+      'maund': 37324.2,
+      'chhatank': 58.319,
+    },
+    refs: [
+      {title:'Desi Units', rows:[['1 tola','11.66 g'],['1 chhatank','58.3 g'],['1 pao','233 g'],['1 seer','933 g'],['1 maund','37.3 kg']]},
+      {title:'Relationships', rows:[['1 pao','4 tola'],['1 seer','4 pao'],['1 maund','40 seer'],['1 kg','2.14 pao']]},
+    ]
+  },
+  temp: {
+    title: 'Temperature Converter',
+    units: {'°C (Celsius)':1,'°F (Fahrenheit)':1,'K (Kelvin)':1},
+    refs: [
+      {title:'Oven Temperatures', rows:[['150°C','300°F'],['180°C','356°F'],['200°C','392°F'],['220°C','428°F'],['250°C','482°F']]},
+      {title:'Key Points', rows:[['Water freezes','0°C / 32°F'],['Room temp','22°C / 72°F'],['Body temp','37°C / 98.6°F'],['Water boils','100°C / 212°F']]},
+    ]
+  }
+};
+
+let curTab = 'weight';
+
+function setTab(tab, btn){
+  curTab = tab;
+  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const data = TABS[tab];
+  document.getElementById('conv-title').textContent = data.title;
+  const units = Object.keys(data.units);
+  const fromSel = document.getElementById('from-unit');
+  const toSel = document.getElementById('to-unit');
+  fromSel.innerHTML = units.map((u,i)=>`<option value="${u}" ${i===0?'selected':''}>${u}</option>`).join('');
+  toSel.innerHTML = units.map((u,i)=>`<option value="${u}" ${i===1?'selected':''}>${u}</option>`).join('');
+  document.getElementById('from-val').value = 1;
+  convert();
+  renderRefs(data.refs);
+}
+
+function convert(){
+  const tab = TABS[curTab];
+  const fromUnit = document.getElementById('from-unit').value;
+  const toUnit = document.getElementById('to-unit').value;
+  const fromVal = parseFloat(document.getElementById('from-val').value)||0;
+
+  let result;
+  if(curTab === 'temp'){
+    // Temperature special case
+    let c;
+    if(fromUnit.includes('°C')) c = fromVal;
+    else if(fromUnit.includes('°F')) c = (fromVal-32)*5/9;
+    else c = fromVal - 273.15;
+
+    if(toUnit.includes('°C')) result = c;
+    else if(toUnit.includes('°F')) result = c*9/5+32;
+    else result = c + 273.15;
+  } else {
+    const fromG = tab.units[fromUnit];
+    const toG = tab.units[toUnit];
+    result = (fromVal * fromG) / toG;
+  }
+
+  const formatted = result < 0.01 ? result.toExponential(3) : parseFloat(result.toFixed(4)).toString();
+  document.getElementById('to-val').value = formatted;
+  document.getElementById('result-val').textContent = formatted;
+  document.getElementById('result-unit').textContent = `${toUnit}`;
+}
+
+function swapUnits(){
+  const f = document.getElementById('from-unit');
+  const t = document.getElementById('to-unit');
+  const fv = f.value; f.value = t.value; t.value = fv;
+  convert();
+}
+
+function renderRefs(refs){
+  document.getElementById('ref-grid').innerHTML = refs.map(r=>`
+    <div class="ref-card">
+      <h4>${r.title}</h4>
+      ${r.rows.map(row=>`<div class="ref-row"><span>${row[0]}</span><span>${row[1]}</span></div>`).join('')}
+    </div>`).join('');
+}
+
+function fq(btn){
+  const item=btn.closest('.faq-item');
+  const open=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!open)item.classList.add('open');
+}
+
+// Init
+setTab('weight', document.querySelector('.tab'));
+</script>
+</body>
+</html>
