@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GoZapTools – Free Online Tools | Payslip, Bill Calculator, CV Builder & More</title>
+  <meta name="description" content="GoZapTools offers free online tools for everyone. Generate salary slips, calculate electricity bills, build CVs, convert cooking units and more. No login required." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.gozaptools.com/" />
+  <meta property="og:title" content="GoZapTools – Free Online Tools for Everyone" />
+  <meta property="og:description" content="6 free tools: payslip generator, electricity calculator, CV builder, cooking converter, WhatsApp chat maker, loan EMI calculator. No login, works worldwide." />
+  <meta property="og:url" content="https://www.gozaptools.com/" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2BWW2MFZCQ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2BWW2MFZCQ');</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"GoZapTools","url":"https://www.gozaptools.com","description":"Free online tools for everyone."}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#0a0a0f;--surface:#13131a;--surface2:#1c1c27;--border:#2a2a3a;--accent:#00e5a0;--accent2:#7b6fff;--text:#f0f0f8;--muted:#7a7a9a;--card-hover:#1a1a26;--max:1100px}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+    body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,229,160,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,160,.025) 1px,transparent 1px);background-size:64px 64px;pointer-events:none;z-index:0}
+    .glow{position:fixed;width:800px;height:500px;background:radial-gradient(ellipse,rgba(0,229,160,.04) 0%,transparent 70%);border-radius:50%;pointer-events:none;top:-100px;left:50%;transform:translateX(-50%);z-index:0}
+
+    nav{position:sticky;top:0;z-index:100;background:rgba(10,10,15,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+    .nav-inner{max-width:var(--max);margin:0 auto;padding:0 1.5rem;height:60px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:8px;flex-shrink:0}
+    .logo span{color:var(--accent)}
+    .logo-icon{width:30px;height:30px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+    .nav-center{display:flex;gap:4px;flex:1;justify-content:center;flex-wrap:wrap}
+    .nav-link{font-size:12px;color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:8px;transition:all .15s;white-space:nowrap}
+    .nav-link:hover{color:var(--text);background:var(--surface)}
+    .nav-cta{font-size:12px;font-weight:600;color:#0a0a0f;background:var(--accent);padding:7px 16px;border-radius:8px;text-decoration:none;white-space:nowrap;transition:opacity .15s;flex-shrink:0}
+    .nav-cta:hover{opacity:.85}
+    @media(max-width:700px){.nav-center{display:none}}
+
+    .hero{position:relative;z-index:1;text-align:center;padding:64px 1.5rem 48px}
+    .hero-inner{max-width:620px;margin:0 auto}
+    .hero-badge{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);background:rgba(0,229,160,.07);border:1px solid rgba(0,229,160,.18);padding:5px 14px;border-radius:20px;margin-bottom:22px}
+    .badge-dot{width:5px;height:5px;border-radius:50%;background:var(--accent);animation:blink 2s infinite}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+    h1{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(1.8rem,4vw,3rem);line-height:1.12;letter-spacing:-.02em;margin-bottom:10px}
+    h1 em{font-style:normal;color:var(--accent)}
+    .tagline{font-size:.9rem;color:var(--accent);font-weight:500;margin-bottom:12px;letter-spacing:.01em}
+    .hero-sub{font-size:.9rem;color:var(--muted);max-width:460px;margin:0 auto 36px;line-height:1.75;font-weight:300}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);max-width:480px;margin:0 auto;background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+    .stat{padding:14px 10px;text-align:center;border-right:1px solid var(--border)}
+    .stat:last-child{border-right:none}
+    .stat-val{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--text);line-height:1}
+    .stat-lbl{font-size:10px;color:var(--muted);margin-top:4px;line-height:1.3}
+    @media(max-width:420px){.stats{grid-template-columns:1fr 1fr}.stat:nth-child(2){border-right:none}.stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--border)}}
+
+    .wrap{position:relative;z-index:1;max-width:var(--max);margin:0 auto;padding:40px 1.5rem}
+    .sec-hd{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+    .sec-hd h2{font-family:'Syne',sans-serif;font-weight:700;font-size:1.1rem;white-space:nowrap;color:var(--text)}
+    .sec-line{flex:1;height:1px;background:var(--border)}
+    .tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+    .tool-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:10px;transition:all .18s;position:relative;overflow:hidden}
+    .tool-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));opacity:0;transition:opacity .18s}
+    .tool-card:hover{background:var(--card-hover);border-color:rgba(0,229,160,.25);transform:translateY(-2px)}
+    .tool-card:hover::after{opacity:1}
+    .tool-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+    .ig{background:rgba(0,229,160,.1)}.ip{background:rgba(123,111,255,.1)}.io{background:rgba(255,165,0,.1)}.ib{background:rgba(0,180,255,.1)}.ik{background:rgba(255,100,150,.1)}
+    .tool-row{display:flex;align-items:center;justify-content:space-between;gap:8px}
+    .tool-name{font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700}
+    .badge{font-size:9px;font-weight:600;padding:2px 7px;border-radius:20px;flex-shrink:0}
+    .b-live{background:rgba(0,229,160,.1);color:var(--accent);border:1px solid rgba(0,229,160,.2)}
+    .b-hot{background:rgba(255,100,50,.1);color:#ff7043;border:1px solid rgba(255,100,50,.2)}
+    .tool-desc{font-size:.8rem;color:var(--muted);line-height:1.6}
+    .tool-arr{font-size:13px;color:var(--accent);align-self:flex-end;opacity:0;transition:all .18s}
+    .tool-card:hover .tool-arr{opacity:1;transform:translateX(3px)}
+
+    .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+    .why-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px}
+    .why-icon{font-size:18px;margin-bottom:8px}
+    .why-card h3{font-family:'Syne',sans-serif;font-size:.85rem;font-weight:700;margin-bottom:7px}
+    .why-card p{font-size:.8rem;color:var(--muted);line-height:1.7}
+
+    .content-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media(max-width:600px){.content-grid{grid-template-columns:1fr}}
+    .content-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px}
+    .content-card h2{font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;margin-bottom:9px}
+    .content-card p{font-size:.8rem;color:var(--muted);line-height:1.8;margin-bottom:7px}
+    .content-card p:last-child{margin-bottom:0}
+    .content-card ul{list-style:none;display:flex;flex-direction:column;gap:4px;margin-top:5px}
+    .content-card li{font-size:.78rem;color:var(--muted);padding-left:14px;position:relative;line-height:1.55}
+    .content-card li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:10px;top:1px}
+
+    .faq-wrap{max-width:680px;margin:0 auto}
+    .faq-item{background:var(--surface);border:1px solid var(--border);border-radius:12px;margin-bottom:6px;overflow:hidden}
+    .faq-q{width:100%;background:none;border:none;color:var(--text);font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:500;padding:14px 17px;text-align:left;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;line-height:1.4}
+    .faq-q:hover{color:var(--accent)}
+    .faq-arr{color:var(--muted);font-size:16px;transition:transform .2s;flex-shrink:0}
+    .faq-item.open .faq-arr{transform:rotate(45deg);color:var(--accent)}
+    .faq-a{font-size:.8rem;color:var(--muted);line-height:1.8;max-height:0;overflow:hidden;transition:max-height .28s,padding .28s;padding:0 17px}
+    .faq-item.open .faq-a{max-height:180px;padding:0 17px 14px}
+
+    footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:36px 1.5rem 24px}
+    .footer-inner{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:start}
+    @media(max-width:560px){.footer-inner{grid-template-columns:1fr}}
+    .footer-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.05rem;margin-bottom:5px}
+    .footer-logo span{color:var(--accent)}
+    .footer-desc{font-size:.78rem;color:var(--muted);line-height:1.65;max-width:300px}
+    .footer-links{display:flex;flex-direction:column;gap:6px;align-items:flex-end}
+    @media(max-width:560px){.footer-links{align-items:flex-start;flex-direction:row;flex-wrap:wrap;gap:10px}}
+    .footer-links a{font-size:12px;color:var(--muted);text-decoration:none;transition:color .15s}
+    .footer-links a:hover{color:var(--accent)}
+    .footer-copy{max-width:var(--max);margin:16px auto 0;padding:14px 1.5rem 0;border-top:1px solid var(--border);font-size:11px;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px}
+
+    @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+    .hero-badge{animation:fadeUp .4s ease both}
+    h1{animation:fadeUp .4s .06s ease both}
+    .tagline{animation:fadeUp .4s .1s ease both}
+    .hero-sub{animation:fadeUp .4s .14s ease both}
+    .stats{animation:fadeUp .4s .18s ease both}
+  </style>
+</head>
+<body>
+<div class="glow"></div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo"><div class="logo-icon">⚡</div>Go<span>Zap</span>Tools</a>
+    <div class="nav-center">
+      <a href="/payslip-generator/" class="nav-link">Payslip</a>
+      <a href="/electricity-calculator/" class="nav-link">Bill Calc</a>
+      <a href="/cv-builder/" class="nav-link">CV Builder</a>
+      <a href="/whatsapp-chat-maker/" class="nav-link">WA Chat</a>
+      <a href="/cooking-converter/" class="nav-link">Cooking</a>
+      <a href="/loan-calculator/" class="nav-link">Loan EMI</a>
+    </div>
+    <a href="/payslip-generator/" class="nav-cta">Try Free →</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge"><div class="badge-dot"></div>Free · No Login · No Watermark</div>
+    <h1>Making life <em>easier</em>,<br>one tool at a time</h1>
+    <div class="tagline">Your free toolkit for everyday tasks</div>
+    <p class="hero-sub">6 free tools — payslips, bills, CVs, loan EMI, cooking units and more. All instant, all in your browser. Works anywhere in the world.</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">6</div><div class="stat-lbl">Free Tools</div></div>
+      <div class="stat"><div class="stat-val">Any</div><div class="stat-lbl">Currency</div></div>
+      <div class="stat"><div class="stat-val">Zero</div><div class="stat-lbl">Signups</div></div>
+      <div class="stat"><div class="stat-val">100%</div><div class="stat-lbl">Private</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap" style="padding-top:0">
+  <div class="sec-hd"><h2>All Tools</h2><div class="sec-line"></div></div>
+  <div class="tools-grid">
+    <a href="/payslip-generator/" class="tool-card">
+      <div class="tool-icon ig">🧾</div>
+      <div class="tool-row"><div class="tool-name">Salary Slip Generator</div><span class="badge b-live">Live</span></div>
+      <div class="tool-desc">Generate professional payslips in any currency. Download clean PDF — no watermark, no login.</div>
+      <div class="tool-arr">→</div>
+    </a>
+    <a href="/electricity-calculator/" class="tool-card">
+      <div class="tool-icon io">⚡</div>
+      <div class="tool-row"><div class="tool-name">Electricity Bill Calculator</div><span class="badge b-live">Live</span></div>
+      <div class="tool-desc">Calculate your bill with full slab breakdown. All Pakistani DISCOs supported.</div>
+      <div class="tool-arr">→</div>
+    </a>
+    <a href="/cv-builder/" class="tool-card">
+      <div class="tool-icon ip">📄</div>
+      <div class="tool-row"><div class="tool-name">CV / Resume Builder</div><span class="badge b-live">Live</span></div>
+      <div class="tool-desc">Build a professional CV with 3 templates. Download as PDF — no watermark, worldwide use.</div>
+      <div class="tool-arr">→</div>
+    </a>
+    <a href="/whatsapp-chat-maker/" class="tool-card">
+      <div class="tool-icon ik">💬</div>
+      <div class="tool-row"><div class="tool-name">WhatsApp Chat Maker</div><span class="badge b-hot">🔥 Hot</span></div>
+      <div class="tool-desc">Create realistic WhatsApp chat screenshots for presentations, mockups and content. Save as PNG.</div>
+      <div class="tool-arr">→</div>
+    </a>
+    <a href="/cooking-converter/" class="tool-card">
+      <div class="tool-icon ib">🍳</div>
+      <div class="tool-row"><div class="tool-name">Cooking Unit Converter</div><span class="badge b-live">Live</span></div>
+      <div class="tool-desc">Convert cups, grams, tola, pao, tablespoons and more. Includes desi units and temperature.</div>
+      <div class="tool-arr">→</div>
+    </a>
+    <a href="/loan-calculator/" class="tool-card">
+      <div class="tool-icon ig">🏦</div>
+      <div class="tool-row"><div class="tool-name">Loan EMI Calculator</div><span class="badge b-live">Live</span></div>
+      <div class="tool-desc">Calculate monthly EMI for any loan. Full amortization schedule. Any currency, any bank.</div>
+      <div class="tool-arr">→</div>
+    </a>
+  </div>
+</div>
+
+<div class="wrap" style="padding-top:0">
+  <div class="sec-hd"><h2>Why GoZapTools?</h2><div class="sec-line"></div></div>
+  <div class="why-grid">
+    <div class="why-card"><div class="why-icon">⚡</div><h3>Instant Results</h3><p>Every tool delivers results immediately. No loading screens, no waiting. Fill in your details and output is ready.</p></div>
+    <div class="why-card"><div class="why-icon">🔒</div><h3>Your Data Stays Private</h3><p>All tools run entirely in your browser. Your salary figures, employee details and personal info never touch our servers.</p></div>
+    <div class="why-card"><div class="why-icon">🌍</div><h3>Works Worldwide</h3><p>Supports any currency and country. Whether you're in the US, UK, UAE, Pakistan or anywhere — GoZapTools works for you.</p></div>
+    <div class="why-card"><div class="why-icon">💸</div><h3>Forever Free</h3><p>No premium tiers, no watermarks, no subscription. Every feature is free and will always remain free.</p></div>
+  </div>
+</div>
+
+<div class="wrap" style="padding-top:0">
+  <div class="sec-hd"><h2>About Our Tools</h2><div class="sec-line"></div></div>
+  <div class="content-grid">
+    <div class="content-card">
+      <h2>Free Payslip Generator — Any Currency, Any Country</h2>
+      <p>Looking for a free tool to generate a salary slip online? GoZapTools Payslip Generator creates professional payslips in under 2 minutes — completely free, no account required.</p>
+      <p>Select your currency, enter employee details, add earnings and deductions, and download a clean PDF instantly.</p>
+      <ul><li>USD, GBP, EUR, AED, PKR, CAD and more</li><li>All standard allowances and deductions</li><li>Blank fields hidden automatically in PDF</li><li>No watermark on download</li></ul>
+    </div>
+    <div class="content-card">
+      <h2>Loan EMI Calculator — Any Bank, Any Country</h2>
+      <p>Calculate your exact monthly loan payment with our free EMI calculator. Enter loan amount, interest rate and term — get your monthly EMI instantly with a full amortization schedule.</p>
+      <ul><li>Works for personal, car, home and business loans</li><li>Shows total interest payable over the loan period</li><li>Full month-by-month repayment schedule</li><li>Supports all currencies and banks worldwide</li></ul>
+    </div>
+  </div>
+</div>
+
+<div class="wrap" style="padding-top:0">
+  <div class="sec-hd"><h2>Frequently Asked Questions</h2><div class="sec-line"></div></div>
+  <div class="faq-wrap">
+    <div class="faq-item"><button class="faq-q" onclick="fq(this)">Is GoZapTools completely free?<span class="faq-arr">+</span></button><div class="faq-a">Yes — all 6 tools are 100% free. No signup, no login, no credit card, no watermarks on downloads. We earn through non-intrusive ads which keeps everything free.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="fq(this)">Can I use these tools outside Pakistan?<span class="faq-arr">+</span></button><div class="faq-a">Absolutely. The payslip generator, CV builder, loan calculator and cooking converter all work worldwide. Select your currency or country where applicable.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="fq(this)">Will blank fields appear in my downloads?<span class="faq-arr">+</span></button><div class="faq-a">No. Any field you leave empty is automatically hidden in your downloaded payslip or CV. Only the information you enter appears in the final document.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="fq(this)">Is my data safe?<span class="faq-arr">+</span></button><div class="faq-a">Your data never leaves your device. All GoZapTools run entirely in your browser using JavaScript. Nothing is ever sent to any server.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="fq(this)">Do I need to install anything?<span class="faq-arr">+</span></button><div class="faq-a">No installation needed. GoZapTools works in any modern browser on any device — phone, tablet or computer. Just open the page and start using the tool immediately.</div></div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">Go<span>Zap</span>Tools</div>
+      <p class="footer-desc">Making life easier, one tool at a time. Free online tools for everyone — no login, no cost, works worldwide.</p>
+    </div>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/payslip-generator/">Payslip Generator</a>
+      <a href="/electricity-calculator/">Bill Calculator</a>
+      <a href="/cv-builder/">CV Builder</a>
+      <a href="/whatsapp-chat-maker/">WA Chat Maker</a>
+      <a href="/cooking-converter/">Cooking Converter</a>
+      <a href="/loan-calculator/">Loan EMI Calc</a>
+      <a href="mailto:hello@gozaptools.com">Contact</a>
+    </div>
+  </div>
+  <div class="footer-copy">
+    <span>© 2025 GoZapTools · All tools run in your browser · Your data stays private</span>
+    <span>Free forever · No login required</span>
+  </div>
+</footer>
+
+<script>
+function fq(btn){
+  const item=btn.closest('.faq-item');
+  const open=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!open)item.classList.add('open');
+}
+</script>
+</body>
+</html>
