@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.gozaptools.com/</loc><lastmod>2025-06-16</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://www.gozaptools.com/payslip-generator/</loc><lastmod>2025-06-16</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.gozaptools.com/electricity-calculator/</loc><lastmod>2025-06-16</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.gozaptools.com/cv-builder/</loc><lastmod>2025-06-16</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.gozaptools.com/whatsapp-chat-maker/</loc><lastmod>2025-06-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.gozaptools.com/cooking-converter/</loc><lastmod>2025-06-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.gozaptools.com/loan-calculator/</loc><lastmod>2025-06-16</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.gozaptools.com/</loc><lastmod>2025-06-26</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://www.gozaptools.com/payslip-generator/</loc><lastmod>2025-06-26</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.gozaptools.com/invoice-generator/</loc><lastmod>2025-06-26</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.gozaptools.com/base64/</loc><lastmod>2025-06-26</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.gozaptools.com/electricity-calculator/</loc><lastmod>2025-06-26</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.gozaptools.com/cv-builder/</loc><lastmod>2025-06-26</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.gozaptools.com/whatsapp-chat-maker/</loc><lastmod>2025-06-26</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.gozaptools.com/cooking-converter/</loc><lastmod>2025-06-26</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.gozaptools.com/loan-calculator/</loc><lastmod>2025-06-26</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>
