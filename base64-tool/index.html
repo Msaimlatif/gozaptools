@@ -6,7 +6,7 @@
   <title>Free Base64 Encoder Decoder Online – Convert Text & Files | GoZapTools</title>
   <meta name="description" content="Free online Base64 encoder and decoder. Encode text to Base64 or decode Base64 to text instantly. Also encode/decode files and images. No login, no ads, works in browser."/>
   <meta name="keywords" content="base64 encoder, base64 decoder, base64 encode, base64 decode, base64 converter, encode base64 online, decode base64 online, base64 to text, text to base64, base64 file encoder"/>
-  <link rel="canonical" href="https://www.gozaptools.com/base64/"/>
+  <link rel="canonical" href="https://gozaptools.com/base64/"/>
   <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
   <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
@@ -125,15 +125,94 @@
   </style>
   <meta property="og:title" content="Base64 Encoder / Decoder | GoZapTools" />
   <meta property="og:description" content="Free online Base64 encoder and decoder. Encode text to Base64 or decode Base64 to text instantly. Also encode files and images. Runs in browser." />
-  <meta property="og:url" content="https://www.gozaptools.com/base64/" />
+  <meta property="og:url" content="https://gozaptools.com/base64/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="GoZapTools" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Base64 Encoder / Decoder | GoZapTools" />
   <meta name="twitter:description" content="Free online Base64 encoder and decoder. Encode text to Base64 or decode Base64 to text instantly. Also encode files and images. Runs in browser." />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Base64 Encoder / Decoder", "url": "https://www.gozaptools.com/base64/", "description": "Free online Base64 encoder and decoder. Encode text to Base64 or decode Base64 to text instantly. Also encode files and images. Runs in browser.", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any (browser-based)", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.8", "ratingCount": "127"}}</script>
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.gozaptools.com/"}, {"@type": "ListItem", "position": 2, "name": "Base64 Encoder / Decoder", "item": "https://www.gozaptools.com/base64/"}]}</script>
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is Base64 the same as encryption?", "acceptedAnswer": {"@type": "Answer", "text": "No. Base64 is encoding, not encryption. Anyone can decode Base64 data without a key. It's designed to safely transmit binary data as text, not to hide or secure it. Never use Base64 as a security measure."}}, {"@type": "Question", "name": "Why does Base64 output end with == ?", "acceptedAnswer": {"@type": "Answer", "text": "Base64 encodes 3 bytes into 4 characters. If the input isn't divisible by 3, padding characters (=) are added to complete the final block. One = means 1 byte of padding, two == means 2 bytes of padding."}}, {"@type": "Question", "name": "Is my data safe using this tool?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — completely. This tool runs 100% in your browser using JavaScript. Your data is never sent to any server. Nothing is stored, logged, or transmitted. Everything happens locally on your device."}}, {"@type": "Question", "name": "Can I encode images and files to Base64?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — click the \"File / Image\" tab, select any file, and the tool converts it to Base64 instantly. You can then copy the output to embed images in HTML/CSS using data URLs, or use the Base64 in APIs and email systems."}}, {"@type": "Question", "name": "What is the difference between Base64 and Base64url?", "acceptedAnswer": {"@type": "Answer", "text": "Standard Base64 uses + and / characters which are not URL-safe. Base64url replaces + with - and / with _, making it safe to use in URLs and filenames. JWT tokens use Base64url encoding."}}]}</script>
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Base64 Encoder / Decoder",
+  "url": "https://gozaptools.com/base64/",
+  "description": "Free online Base64 encoder and decoder. Encode text to Base64 or decode Base64 to text instantly. Also encode files and images. Runs in browser.",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any (browser-based)",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}</script>
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://gozaptools.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Base64 Encoder / Decoder",
+      "item": "https://gozaptools.com/base64/"
+    }
+  ]
+}</script>
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Base64 the same as encryption?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Base64 is encoding, not encryption. Anyone can decode Base64 data without a key. It's designed to safely transmit binary data as text, not to hide or secure it. Never use Base64 as a security measure."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does Base64 output end with == ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Base64 encodes 3 bytes into 4 characters. If the input isn't divisible by 3, padding characters (=) are added to complete the final block. One = means 1 byte of padding, two == means 2 bytes of padding."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my data safe using this tool?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — completely. This tool runs 100% in your browser using JavaScript. Your data is never sent to any server. Nothing is stored, logged, or transmitted. Everything happens locally on your device."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I encode images and files to Base64?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — click the \"File / Image\" tab, select any file, and the tool converts it to Base64 instantly. You can then copy the output to embed images in HTML/CSS using data URLs, or use the Base64 in APIs and email systems."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between Base64 and Base64url?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Standard Base64 uses + and / characters which are not URL-safe. Base64url replaces + with - and / with _, making it safe to use in URLs and filenames. JWT tokens use Base64url encoding."
+      }
+    }
+  ]
+}</script>
+  <meta property="og:image" content="https://gozaptools.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:image" content="https://gozaptools.com/og-image.png" />
 </head>
 <body>
 
